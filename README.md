@@ -2,8 +2,9 @@
 
 Dependencies:
 
-* Django V.?
 * Python2.7
+* Django-1.5.1
+* South-0.8.1
 * VirtualEnv
 
 ##How to install##

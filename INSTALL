@@ -1,6 +1,8 @@
 
 Dependencies:
  * Python2.7
+ * Django-1.5.1
+ * South-0.8.1
  * VirtualEnv
  It is used for creating an isolated environment of programming.
  You can load this environment with:
@@ -12,3 +14,4 @@ Dependencies:
 You are then ready for running the project.
  %> cd mentoring_manager
  %> python manage.py runserver
+ 
