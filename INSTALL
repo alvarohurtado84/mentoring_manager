@@ -2,13 +2,13 @@
 Dependencies:
  * Python2.7
  * VirtualEnv
- It is used for creating and isolated environment of programming.
+ It is used for creating an isolated environment of programming.
  You can load this environment with:
   %> source env/bin/activate
  
  More info: https://pypi.python.org/pypi/virtualenv
  
   
-Then you are ready for running the project.
+You are then ready for running the project.
  %> cd mentoring_manager
  %> python manage.py runserver
