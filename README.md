@@ -19,10 +19,6 @@ pip install Django
 pip install south
 ```
 
-```$
-pip install pil
-```
-
 ##How to run##
 
 ```$
