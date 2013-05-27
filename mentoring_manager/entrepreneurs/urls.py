@@ -16,22 +16,10 @@
 
 from django.conf.urls import patterns, include, url
 
-# ADMIN
-from django.contrib import admin
-admin.autodiscover()
-
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'mentoring_manager.views.home', name='home'),
-    # url(r'^mentoring_manager/', include('mentoring_manager.foo.urls')),
-
-    # Mentors
-    url(r'^mentors/', include('mentors.urls')),
     
-    # Entrepreneurs
-    url(r'^entrepreneurs/', include('entrepreneurs.urls')),
+    url(r'create/$', 'entrepreneurs.views.create', name="entrepreneurs_create"),
+    url(r'(?P<username>[a-zA-Z0-9\-\_]+)/$', 'entrepreneurs.views.profile', name="entrepreneurs_profile"),
+    url(r'$', 'entrepreneurs.views.list', name="entrepreneurs_list"),
 
-    # ADMIN
-    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    url(r'^admin/', include(admin.site.urls)),
 )

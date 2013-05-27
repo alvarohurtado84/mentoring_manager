@@ -1,6 +1,6 @@
 
 # Mentoring Manager is a web application to manage mentoring sessions between mentors and entrepreneurs.
-# Copyright (C) 2013  çlvaro Hurtado Moch—n (alvarohurtado84@gmail.com)
+# Copyright (C) 2013  Alvaro Hurtado Mochon (alvarohurtado84@gmail.com)
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -14,8 +14,8 @@
 #
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-from django.db import models
 
+from django.db import models
 
 from people.models import Person
 
@@ -32,7 +32,7 @@ class Startup(models.Model):
 
 class Entrepreneur(models.Model):
     person = models.OneToOneField(Person)
-    startup = models.ForeignKey(Startup)
+    startup = models.ForeignKey(Startup, null=True)
     
     # Specific info for entrepreneurs here
 

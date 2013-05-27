@@ -1,3 +1,4 @@
+
 # Mentoring Manager is a web application to manage mentoring sessions between mentors and entrepreneurs.
 # Copyright (C) 2013  Alvaro Hurtado Mochon (alvarohurtado84@gmail.com)
 #
@@ -14,24 +15,11 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from django.conf.urls import patterns, include, url
+from django.forms import ModelForm
 
-# ADMIN
-from django.contrib import admin
-admin.autodiscover()
+from mentors.models import Mentor
 
-urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'mentoring_manager.views.home', name='home'),
-    # url(r'^mentoring_manager/', include('mentoring_manager.foo.urls')),
 
-    # Mentors
-    url(r'^mentors/', include('mentors.urls')),
-    
-    # Entrepreneurs
-    url(r'^entrepreneurs/', include('entrepreneurs.urls')),
-
-    # ADMIN
-    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    url(r'^admin/', include(admin.site.urls)),
-)
+class MentorForm(ModelForm):
+    class Meta:
+        model = Mentor

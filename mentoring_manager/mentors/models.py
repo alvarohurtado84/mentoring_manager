@@ -1,6 +1,6 @@
 
 # Mentoring Manager is a web application to manage mentoring sessions between mentors and entrepreneurs.
-# Copyright (C) 2013  çlvaro Hurtado Moch—n (alvarohurtado84@gmail.com)
+# Copyright (C) 2013  Alvaro Hurtado Mochon (alvarohurtado84@gmail.com)
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -22,5 +22,3 @@ from people.models import Person
 
 class Mentor(models.Model):
     person = models.OneToOneField(Person)
-    
-    # Specific info for mentors here

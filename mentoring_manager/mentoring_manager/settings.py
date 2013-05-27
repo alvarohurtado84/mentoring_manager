@@ -1,6 +1,6 @@
 
 # Mentoring Manager is a web application to manage mentoring sessions between mentors and entrepreneurs.
-# Copyright (C) 2013  çlvaro Hurtado Moch—n (alvarohurtado84@gmail.com)
+# Copyright (C) 2013  Alvaro Hurtado Mochon (alvarohurtado84@gmail.com)
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -20,7 +20,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Alvaro Hurtado', 'alvarohurtado84@gmail.com'),
+    ('Alvaro Hurtado', 'alvarohurtado84@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -124,6 +124,7 @@ ROOT_URLCONF = 'mentoring_manager.urls'
 WSGI_APPLICATION = 'mentoring_manager.wsgi.application'
 
 TEMPLATE_DIRS = (
+    "/Users/alvarohurtado84/Dropbox/mentoring_manager/mentoring_manager/templates",
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -178,3 +179,10 @@ LOGGING = {
         },
     }
 }
+
+
+
+# Mentoring Manager Configuration
+ENTREPRENEUR_LIST_SIZE = 10
+MENTOR_LIST_SIZE = 10
+
