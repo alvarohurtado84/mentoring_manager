@@ -21,4 +21,6 @@ from people.models import Person
 
 
 class Mentor(models.Model):
+    """Contains the data of a Person related only with the mentor role."""
+    
     person = models.OneToOneField(Person)

@@ -39,6 +39,8 @@ from mentoring_manager.settings import MENTOR_LIST_SIZE
 
 
 def list(request):
+    """Render a list of mentors."""
+    
     mentors = Mentor.objects.all()[:MENTOR_LIST_SIZE]
     return render_to_response("mentors/list.html",
         {
@@ -48,6 +50,8 @@ def list(request):
     )
 
 def profile(request, username):
+    """Render a detailed profile of the mentor identified by username."""
+    
     user = User.objects.get(username=username)
     
     if user.person.is_mentor():
@@ -64,6 +68,8 @@ def profile(request, username):
 
 
 def create(request):
+    """Render a form to create a mentor."""
+    
     if request.method == "POST":
         form = UserForm(request.POST)
         if form.is_valid():
