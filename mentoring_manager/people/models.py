@@ -22,6 +22,8 @@ from django.contrib.auth.models import User
 #from mentor.models import Mentor
 
 class Person(models.Model):
+    """Contains the data of a Person."""
+    
     user = models.OneToOneField(User)
     
     avatar = models.ImageField(upload_to="avatars/people")
@@ -31,6 +33,7 @@ class Person(models.Model):
     linkedin_profile = models.URLField()
     
     def is_mentor(self):
+        """Check if this Person is a mentor."""
         try:
             self.mentor
             return True
@@ -38,6 +41,7 @@ class Person(models.Model):
             return False
     
     def is_entrepreneur(self):
+        """Check if this Person is an entrepreneur."""
         try:
             self.entrepreneur
             return True

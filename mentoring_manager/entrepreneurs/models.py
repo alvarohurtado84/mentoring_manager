@@ -21,6 +21,8 @@ from people.models import Person
 
 
 class Startup(models.Model):
+    """Contains the startups data."""
+    
     name = models.CharField(max_length=100)
     description = models.TextField()
     
@@ -31,6 +33,8 @@ class Startup(models.Model):
 
 
 class Entrepreneur(models.Model):
+    """Contains the data of a Person related only with the entrepreneur role."""
+    
     person = models.OneToOneField(Person)
     startup = models.ForeignKey(Startup, null=True)
     
