@@ -1,2 +1,3 @@
 *.pyc
 .DS_Store
+mentoring_manager/mentoring_manager/settings.py

@@ -88,6 +88,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    '/home/hhkaos/workspace/mentoring_manager/mentoring_manager/static',
 )
 
 # List of finder classes that know how to find static files in
@@ -124,7 +125,7 @@ ROOT_URLCONF = 'mentoring_manager.urls'
 WSGI_APPLICATION = 'mentoring_manager.wsgi.application'
 
 TEMPLATE_DIRS = (
-    "/Users/alvarohurtado84/Dropbox/mentoring_manager/mentoring_manager/templates",
+    "/home/hhkaos/workspace/mentoring_manager/mentoring_manager/templates",
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -137,16 +138,16 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     # Admin apps
     'django.contrib.admin',
     'django.contrib.admindocs',
-    
+
     # Our apps
     'people',
     'mentors',
     'entrepreneurs',
-    
+
     # For db migrations or changes
     'south',
 )

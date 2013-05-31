@@ -22,12 +22,13 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'mentoring_manager.views.home', name='home'),
+    url(r'^$', 'mentoring_manager.views.home', name='home'),
+
     # url(r'^mentoring_manager/', include('mentoring_manager.foo.urls')),
 
     # Mentors
     url(r'^mentors/', include('mentors.urls')),
-    
+
     # Entrepreneurs
     url(r'^entrepreneurs/', include('entrepreneurs.urls')),
 
