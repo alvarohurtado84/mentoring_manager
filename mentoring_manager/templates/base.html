@@ -11,7 +11,7 @@
         <meta name="description" content="bulb is a creative agency that create websites, mobile apps & digital content">
         <meta name="author" content="Vincent Bianciotto">
         <meta name="viewport" content="width=device-width">
-
+        <meta HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800|Dosis|Kaushan+Script' rel='stylesheet' type='text/css'>
         <link href="{{STATIC_URL}}less/style.less" rel="stylesheet/less" type="text/css">
 
@@ -24,8 +24,10 @@
         <script src="{{STATIC_URL}}js/vendor/less-1.3.1.min.js" type="text/javascript"></script>
 
 
+
+
     </head>
-    <body class="homepage1">
+    <body class="homepage">
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -47,7 +49,7 @@
             <nav class="menu-wrapper">
                 <ul class="menu transitions">
                     <li>
-                        <a href="./index.html" class="active">How to play</a>
+                        <a href="#howto" class="active">How to play</a>
                         <!--<ul class="sub-menu">
                             <li><a href="./index.html">Homepage 1 - without slider</a></li>
                             <li><a href="./homepage2.html">Homepage 2 - with a big slider</a></li>
@@ -64,16 +66,16 @@
                         </ul>-->
                     </li>
                     <li>
-                        <a href="./portfolio1.html">Join a team</a>
+                        <a href="#signup">Join a team</a>
                     </li>
                     <li>
-                        <a href="./team1.html">Mentors</a>
+                        <a href="#mentors">Mentors</a>
                     </li>
                     <li>
-                        <a href="./elements.html">Startups</a>
+                        <a href="#startups">Startups</a>
                     </li>
                     <li>
-                        <a href="./blog.html">Contact</a>
+                        <a href="#contact">Get in touch</a>
                     </li>
                 </ul>
             </nav>
@@ -81,22 +83,7 @@
             {% endblock %}
         </div> <!-- #wrapper -->
 
-        <footer class="footer-wrapper">
-            <div class="footer-slogan">
-                <div class="container">
-                    <div class="row">
-                        <div class="span6">
-                            <h4>You've got a new project in mind?</h4>
-                        </div>
-                        <a href="#" class="ribbon">
-                            <span>Get started now!</span>
-                        </a>
-                        <div class="span6">
-                            <h4>Or check out our <a href="#">portfolio</a>.</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <footer class="footer-wrapper" id="contact">
             <div class="footer-top container">
                 <div class="row">
                     <div class="span4">
@@ -122,7 +109,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="span8">
-                            <span class="copyright">bulb creative agency <small>&copy; 2012</small></span>
+                            <span class="copyright">Mento.re <small>&copy; 2012</small></span>
                             <nav class="footer-menu">
                                 <ul>
                                     <li><a href="#">Legal</a></li>
@@ -148,7 +135,7 @@
             </div>
         </footer>
 
-    <script>
+    <script type="text/javascript">
         head.js('//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js');
         window.jQuery || head.js('{{STATIC_URL}}js/vendor/jquery-1.8.3.min.js');
         head.js('{{STATIC_URL}}js/script.js');
@@ -156,6 +143,13 @@
         head.js('{{STATIC_URL}}js/vendor/responsiveslides.js');
         head.js('{{STATIC_URL}}js/vendor/retina.js');
         head.js('{{STATIC_URL}}js/vendor/jquery.fitvids.min.js');
+
+
+        setTimeout(function(){
+            less.env = "development";
+            less.watch();
+        },8000)
+
     </script>
 
     <script>

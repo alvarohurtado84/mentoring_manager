@@ -1,7 +1,7 @@
 /*
  *  Bulb - HTML template & Wordpress theme
  *  Copyright © 2012 Vincent Bianciotto - http://www.celavi.fr
- *  
+ *
  *  @date 01/04/2013
  *  @licence CC BY-NC 3.0
  *  @author Vincent Bianciotto
@@ -9,12 +9,21 @@
  */
 
 jQuery.noConflict();
-(function($) { 
+(function($) {
     $(function() {
 
+
+        $('.menu a').click(function(){
+            var offset=$( $.attr(this, 'href') ).offset().top-70
+            var time=offset*500/700;
+            $('html, body').animate({
+                scrollTop: offset
+            }, time);
+            return false;
+        });
         // ---------------------------------------------------------------------------------------------------------------
         //          MISC
-        
+
         // Vars
         var $html = $('html'),
             $body = $('body'),
@@ -27,7 +36,7 @@ jQuery.noConflict();
                 $keywords.responsiveSlides({'speed': 700});
             }
         }
-        
+
         // Convert all <video> and <audio> tags to MediaElement.js
         if($html.hasClass('video') && $html.hasClass('audio')) {
             if($body.hasClass('blog-index')) {
@@ -152,7 +161,7 @@ jQuery.noConflict();
                 brandNodeMarginTop,
                 brandNodeMarginLeft,
                 trueBrandsHeight;
-        
+
             // Waiting for images loaded
             // and calculate true width brands wrapper
             $(window).load(function(){
@@ -233,10 +242,10 @@ jQuery.noConflict();
                 });
             }
         }
-        
+
         // ---------------------------------------------------------------------------------------------------------------
         //          HOMEPAGE 3
-        
+
         if(typeof $.fn.responsiveSlides === 'function') {
             if($body.hasClass('homepage3')){
                 $('#homeSlider2').responsiveSlides({
@@ -268,22 +277,22 @@ jQuery.noConflict();
                 nbrElem = 2;
             } else if (windowWidth < 767) {
                 nbrElem = 1;
-            }               
+            }
 
             // Update columnWidth after resize
             $container.isotope({
                 masonry: { columnWidth: $container.width() / nbrElem }
-            });            
+            });
         }
 
         if($body.hasClass('portfolio1') || $body.hasClass('portfolio2')) {
-            
+
             // Vars
             var $container = $('#container'),
                 $filters = $('#filters a'),
                 windowWidth = $(window).width(),
                 nbrElem;
-            
+
             // Check layouts & window width to set column width
             if($body.hasClass('portfolio1') && windowWidth >= 767) {
                 nbrElem = 3;
@@ -332,11 +341,11 @@ jQuery.noConflict();
         //          PORTFOLIO 3
 
         if($body.hasClass('portfolio3')) {
-            
+
             // Vars
             var $container = $('#container'),
                 $filters = $('#filters a');
-            
+
             // initialize isotope
             $container.isotope({
                 itemSelector: '.project',
@@ -412,13 +421,13 @@ jQuery.noConflict();
 
                     // POST
                     $.post($(this).attr('action'), formSerialized, function(data){
-                        $form.slideUp(500, function() {                
+                        $form.slideUp(500, function() {
                             $form.before($successMessage);
                             $successMessage.slideDown(300);
                         });
                     });
                 }
-                
+
                 return false;
             });
         }

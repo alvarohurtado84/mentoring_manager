@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+
+        <title>bulb - Theme documentation</title>
+        <meta name="description" content="bulb is a creative agency that create websites, mobile apps & digital content">
+        <meta name="author" content="Vincent Bianciotto">
+        <meta name="viewport" content="width=device-width">
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="http://www.celavi.fr/themeforest/bulb/www/css/style.css">
+        <!--[if lt IE 8]>
+        <link rel="stylesheet" href="http://www.celavi.fr/themeforest/bulb/www/css/easycons-ie7.css">
+        <![endif]-->
+        <link rel="stylesheet" href="css/documentation.css">
+
+        <script src="http://www.celavi.fr/themeforest/bulb/www/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="wrapper">
+
+            <nav class="breadcrumb-wrapper">
+                <ul class="breadcrumb">
+                    <li><a href="http://www.bulb-html.dev/">bulb Documentation</a></li>
+                    <li><a href="#contact">Contact & support</a></li>
+                </ul>
+            </nav>
+
+            <div class="container">
+                <div class="row">
+                    <div class="span3 sidebar">
+                        <ul class="nav-white" id="nav">
+                            <li class="heading">Customization</li>
+                            <li><a href="#less">LESS</a></li>
+                            <li><a href="#colorcustomization">Color customization</a></li>
+                            <li><a href="#texturescustomization">Textures customization</a></li>
+                            <li><a href="#cssoptimisation">CSS optimization</a></li>
+                            <li class="heading">Scaffolding</li>
+                            <li><a href="#grid-system">The grid system</a></li>
+                            <li><a href="#headings">Headings & text</a></li>
+                            <li><a href="#olul">Ordered & unordered list</a></li>
+                            <li class="heading">Elements</li>
+                            <li><a href="#images">Images</a></li>
+                            <li><a href="#buttons">Buttons</a></li>
+                            <li><a href="#easycons">Icons - Easycons</a></li>
+                            <li><a href="#pricingtables">Pricing tables</a></li>
+                            <li class="heading">Contact & support</li>
+                            <li><a href="#contact">Contact & Support</a></li>
+                            <li><a href="#credits">Credits</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="span9">
+                        <h1 class="styled">Documentation</h1>
+                        <h2 class="tight light">Welcome to the bulb <strong>documentation</strong> and <strong>shortcode elements</strong>, here you will find all you need to customize your bulb website!</h2>
+
+                        <p><strong>If you bought this theme</strong> and you don't find what you want here, feel free to <strong><a href="mailto:vincent@celavi.fr?subject=[bulb%20theme]">contact me via email</a></strong>. <strong>If you don't buy it yet</strong>, buy it ;-) or <strong>contact me via ThemeForest</strong></p>
+
+                        <hr>
+                        <h2 class="styled" id="less">LESS</h2>
+
+                        <h3>bulb is fully built with <a href="http://lesscss.org/">less</a>. It allow to use variables, functions, mixins, and many other things with CSS. That's why bulb is easily customizable!</h3>
+
+                        <p>If you don't know LESS, <a href="http://lesscss.org/">checkout the documentation on the official website.</a></p>
+
+                        <h4>If you are a Mac user</h4>
+                        <p>You can use the <a href="http://incident57.com/less/">Unofficial LESS app</a> or <a href="http://incident57.com/codekit/">CodeKit</a> by Bryan D K Jones to compile LESS files.</p>
+
+                        <h4>If you are a PC user</h4>
+                        <p>Checkout <a href="http://crunchapp.net/">Crunch app</a> by Matthew Dean & Matt Kump or <a href="http://wearekiss.com/simpless">SimpLESS</a> by KISS.</p>
+
+                        <hr>
+                        <h2 class="styled" id="colorcustomization">Color customization</h2>
+
+                        <h3>All you have to edit is the <strong>variables.less</strong> file!</h3>
+
+                        <h4>Here is a sample of the variables.less file</h4>
+                        <pre class="doc-code">
+// Headings
+// -------------------------
+@headingStyledTextColor: #fff;
+
+@headingStyledBgColor: @mainColor;
+@headingStyledShadowColor: darken(@mainColor, 10%);
+
+@headingStyledBgColorDark: #646464;
+@headingStyledShadowColorDark: #333;
+
+@headingStyledBgColorWhite: #fff;
+@headingStyledShadowColorWhite: darken(#fff, 12%);
+                        </pre>
+
+                        <h4>Make change, compile, and that's it!</h4>
+                        <p>To custom colors as you want, you just have to <strong>change variables values</strong>, and <strong>then compile the style.less file to the /css/ folder</strong></p>
+
+                        <hr>
+                        <h2 class="styled" id="texturescustomization">Textures customization</h2>
+
+                        <h3>To custom textures/images background, this is the same thing than color. Change the path and compile style.less, that's it!</h3>
+
+                        <h4>You can add retina version too</h4>
+                        <pre class="doc-code">
+// Body
+// -------------------------
+@bodyTextureBg: '../img/textures/gray_jean/gray_jean.png';
+@bodyTextureBgRetina: '../img/textures/gray_jean/gray_jean_@2X.png';
+
+// Header
+// -------------------------
+@headerBorderBottomColor: #222;
+@headerTextureBg: '../img/textures/debut_dark/debut_dark.png';
+@headerTextureBgRetina: '../img/textures/debut_dark/debut_dark_@2X.png';
+// Image (homepage1)
+@homeHeaderBg: '../images/homepage1/header.jpg';
+@homeHeaderBgRetina: '../images/homepage1/header.jpg';
+// Texture over image (stripped)
+@homeHeaderTextureOver: '../images/homepage1/white-stripped.png';
+@homeHeaderTextureOverRetina: '../images/homepage1/white-stripped.png';
+                        </pre>
+
+                        <hr>
+                        <h2 class="styled" id="grid-system">The grid system</h2>
+                        <p>The grid system in bulb theme is the <a href="http://twitter.github.com/bootstrap/scaffolding.html#gridSystem">Twitter Boostrap grid system</a>.</p>
+                        <p>This a <strong>12 columns grid</strong>, pixels based, using float and margins. It is a good grid system, very often used, cross-browser compatible and stable.</p>
+                        <p>Here is a short demo on how to use it, but you should <a href="http://twitter.github.com/bootstrap/scaffolding.html#gridSystem">checkout the Twitter Bootstrap doc</a> to better understanding how to use it.</p>
+
+                        <h3>Create a simple 2 columns layout with sidebar</h3>
+                        <pre class="doc-code">
+&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="span3"&gt;Here is my sidebar&lt;/div&gt;
+        &lt;div class="span9"&gt;Here is my main content&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+
+                        <h3>Create a 3 colmuns layout with the same width</h3>
+                        <pre class="doc-code">
+&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="span4"&gt;Column 1&lt;/div&gt;
+        &lt;div class="span4"&gt;Column 2&lt;/div&gt;
+        &lt;div class="span4"&gt;Column 3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+
+                        <hr>
+                        <h2 class="styled" id="headings">Headings & text</h2>
+                        <h3>Default headings style</h3>
+
+                        <div class="doc-example">
+                            <h1>This title is a h1 tag</h1>
+                            <h2>This title is a h2 tag</h2>
+                            <h3>This title is a h3 tag</h3>
+                            <h4>This title is a h4 tag</h4>
+                            <h5>This title is a h5 tag</h5>
+                            <h6>This title is a h6 tag</h6>
+                        </div>
+                        <pre class="doc-code">
+&lt;h1&gt;This title is a h1 tag&lt;/h1&gt;
+&lt;h2&gt;This title is a h2 tag&lt;/h2&gt;
+&lt;h3&gt;This title is a h3 tag&lt;/h3&gt;
+&lt;h4&gt;This title is a h4 tag&lt;/h4&gt;
+&lt;h5&gt;This title is a h5 tag&lt;/h5&gt;
+&lt;h6&gt;This title is a h6 tag&lt;/h6&gt;
+                        </pre>
+
+                        <h3>Variant headings class</h3>
+
+                        <div class="doc-example">
+                            <h3>This title is a standard heading</h3>
+                            <h3 class="tight">This is a tight heading (less margin on top)</h3>
+                            <h3 class="light">This is a light heading</h3>
+                            <h3 class="colored">This is a colored heading</h3>
+                            <h3 class="tight light colored">This is a tight, white and colored heading</h3>
+                        </div>
+                        <pre class="doc-code">
+&lt;h3&gt;This is a standard heading&lt;/h3&gt;
+&lt;h3 class="tight"&gt;This is a tight heading&lt;/h3&gt;
+&lt;h3 class="light"&gt;This is a light heading&lt;/h3&gt;
+&lt;h3 class="colored"&gt;This is a colored heading&lt;/h3&gt;
+&lt;h3 class="tight light colored"&gt;This is a tight, white and colored heading&lt;/h3&gt;
+                        </pre>
+
+                        <h3>Styled headings</h3>
+
+                        <div class="doc-example">
+                            <h3 class="styled">This title is a styled heading</h3>
+                        </div>
+                        <pre class="doc-code">&lt;h3 class="styled"&gt;This title is a styled heading&lt;/h3&gt;</pre>
+
+                        <div class="doc-example">
+                            <h3 class="styled white">This title is a white styled heading</h3>
+                        </div>
+                        <pre class="doc-code">&lt;h3 class="styled white"&gt;This title is a white styled heading&lt;/h3&gt;</pre>
+
+                        <div class="doc-example">
+                            <h3 class="styled dark">This title is a dark styled heading</h3>
+                        </div>
+                        <pre class="doc-code">&lt;h3 class="styled dark"&gt;This title is a dark styled heading&lt;/h3&gt;</pre>
+
+                        <hr>
+                        <h2 class="styled" id="olul">Ordered & unordered list</h2>
+
+                        <h3>Ordered list</h3>
+                        <div class="doc-example">
+                            <ol>
+                                <li>Ullamco nostrud magna veniam pariatur.</li>
+                                <li>Commodo elit fugiat dolor ullamco.</li>
+                                <li>Cupidatat est eu laborum.</li>
+                                <li>Lupidatat tempor in cupidatat in deserunt.</li>
+                            </ol>
+                        </div>
+                        <pre class="doc-code">
+&lt;ol&gt;
+    &lt;li&gt;Ullamco nostrud magna veniam pariatur.&lt;/li&gt;
+    &lt;li&gt;Commodo elit fugiat dolor ullamco.&lt;/li&gt;
+    &lt;li&gt;Cupidatat est eu laborum.&lt;/li&gt;
+    &lt;li&gt;Lupidatat tempor in cupidatat in deserunt.&lt;/li&gt;
+&lt;/ol&gt;
+                        </pre>
+
+                        <h3>Checked list</h3>
+                        <div class="doc-example">
+                            <ul class="checked">
+                                <li>Ullamco nostrud magna veniam pariatur.</li>
+                                <li>Commodo elit fugiat dolor ullamco.</li>
+                                <li>Cupidatat est eu laborum.</li>
+                                <li>Lupidatat tempor in cupidatat in deserunt.</li>
+                            </ul>
+                        </div>
+                        <pre class="doc-code">
+&lt;ul class="checked"&gt;
+    &lt;li&gt;Ullamco nostrud magna veniam pariatur.&lt;/li&gt;
+    &lt;li&gt;Commodo elit fugiat dolor ullamco.&lt;/li&gt;
+    &lt;li&gt;Cupidatat est eu laborum.&lt;/li&gt;
+    &lt;li&gt;Lupidatat tempor in cupidatat in deserunt.&lt;/li&gt;
+&lt;/ul&gt;
+                        </pre>
+
+                        <h3>Styled list</h3>
+                        <div class="doc-example">
+                            <ul class="styled">
+                                <li>Ullamco nostrud magna veniam pariatur.</li>
+                                <li>Commodo elit fugiat dolor ullamco.</li>
+                                <li>Cupidatat est eu laborum.</li>
+                                <li>Lupidatat tempor in cupidatat in deserunt.</li>
+                            </ul>
+                        </div>
+                        <pre class="doc-code">
+&lt;ul class="styled"&gt;
+    &lt;li&gt;Ullamco nostrud magna veniam pariatur.&lt;/li&gt;
+    &lt;li&gt;Commodo elit fugiat dolor ullamco.&lt;/li&gt;
+    &lt;li&gt;Cupidatat est eu laborum.&lt;/li&gt;
+    &lt;li&gt;Lupidatat tempor in cupidatat in deserunt.&lt;/li&gt;
+&lt;/ul&gt;
+                        </pre>
+
+                        <hr>
+                        <h2 class="styled" id="images">Images</h2>
+
+                        <h3>Bordered image</h3>
+                        <div class="doc-example">
+                            <img src="http://www.celavi.fr/themeforest/bulb/www/images/features/code.jpg" class="bordered" alt="Bordered">
+                        </div>
+                        <pre class="doc-code">&lt;img src="http://www.celavi.fr/themeforest/bulb/www/images/features/code.jpg" class="bordered" alt="Bordered"&gt;</pre>
+
+                        <h3>Rounded image</h3>
+                        <div class="doc-example">
+                            <img src="http://www.celavi.fr/themeforest/bulb/www/images/features/code.jpg" class="rounded" alt="Rounded">
+                        </div>
+                        <pre class="doc-code">&lt;img src="http://www.celavi.fr/themeforest/bulb/www/images/features/code.jpg" class="rounded" alt="Rounded"&gt;</pre>
+
+                        <h3>Glossy image</h3>
+                        <div class="doc-example">
+                            <figure class="glossy">
+                                <img src="http://www.celavi.fr/themeforest/bulb/www/images/features/credit-card.jpg" alt="Glossy">
+                            </figure>
+                        </div>
+                        <pre class="doc-code">
+&lt;figure class="glossy"&gt;
+    &lt;img src="http://www.celavi.fr/themeforest/bulb/www/images/features/credit-card.jpg" alt="Glossy"&gt;
+&lt;/figure&gt;
+                        </pre>
+
+                        <h3>Glossy, rounded and bordered image</h3>
+                        <div class="doc-example">
+                            <figure class="glossy">
+                                <img src="http://www.celavi.fr/themeforest/bulb/www/images/features/credit-card.jpg" class="rounded bordered" alt="Glossy rounded & bordered">
+                            </figure>
+                        </div>
+                        <pre class="doc-code">
+&lt;figure class="glossy"&gt;
+    &lt;img src="http://www.celavi.fr/themeforest/bulb/www/images/features/credit-card.jpg" class="rounded bordered" alt="Glossy rounded & bordered"&gt;
+&lt;/figure&gt;
+                        </pre>
+
+                        <hr>
+                        <h2 class="styled" id="buttons">Buttons</h2>
+
+                        <h3>Link & form button</h3>
+                        <div class="doc-example">
+                            <a href="#" class="btn">This is a button link</a>
+                            <input type="button" value="This is a form button" class="btn">
+                        </div>
+                        <pre class="doc-code">
+&lt;a href="#" class="btn">This is a button link&lt;/a&gt;
+&lt;input type="button" value="This is a type input button" class="btn"&gt;
+                        </pre>
+
+                        <h3>Button sizes</h3>
+                        <div class="doc-example">
+                            <a href="#" class="btn small">Button small</a>
+                            <a href="#" class="btn">Button default</a>
+                            <a href="#" class="btn large">Button large</a>
+                        </div>
+
+                        <h3>Shaded button</h3>
+                        <div class="doc-example">
+                            <a href="#" class="btn shaded">Button shaded</a>
+                        </div>
+
+                        <hr>
+                        <h2 class="styled" id="easycons">Icons - Easycons</h2>
+                        <p>I created some icons for this theme, in Photoshop, and I decided to move forward and create <strong>another vector font icon set</strong>, and call it <strong><a href="#">Easycons</a></strong></p>
+
+                        <blockquote class="huge">
+                            <p>It's pretty easy to use them, and you can use them anywhere else, <strong>for free</strong>, even in commercial-use.</p>
+                        </blockquote>
+
+                        <div class="doc-example">
+                            <h1><i class="easycons-audio"></i>
+                            <i class="easycons-headphones"></i>
+                            <i class="easycons-comments"></i>
+                            <i class="easycons-pen"></i>
+                            <i class="easycons-feather"></i>
+                            <i class="easycons-lifebuoy"></i>
+                            <i class="easycons-home"></i>
+                            <i class="easycons-tea"></i>
+                            <i class="easycons-palette"></i>
+                            <i class="easycons-heart-broken"></i></h1>
+                        </div>
+                        <pre class="doc-code">
+&lt;h1&gt;&lt;i class="easycons-audio"&gt;&lt;/i&gt;
+&lt;i class="easycons-headphones"&gt;&lt;/i&gt;
+&lt;i class="easycons-comments"&gt;&lt;/i&gt;
+&lt;i class="easycons-pen"&gt;&lt;/i&gt;
+&lt;i class="easycons-feather"&gt;&lt;/i&gt;
+&lt;i class="easycons-lifebuoy"&gt;&lt;/i&gt;
+&lt;i class="easycons-home"&gt;&lt;/i&gt;
+&lt;i class="easycons-tea"&gt;&lt;/i&gt;
+&lt;i class="easycons-palette"&gt;&lt;/i&gt;
+&lt;i class="easycons-heart-broken"&gt;&lt;/i&gt;&lt;/h1&gt;
+                        </pre>
+
+                        <h3>Icons rounded</h3>
+                        <div class="doc-example">
+                            <span class="icon-rounded small"><i class="easycons-lifebuoy"></i></span>
+                            <span class="icon-rounded medium"><i class="easycons-lifebuoy"></i></span>
+                            <span class="icon-rounded large"><i class="easycons-lifebuoy"></i></span>
+                        </div>
+                        <pre class="doc-code">
+&lt;span class="icon-rounded small"&gt;&lt;i class="easycons-lifebuoy"&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;span class="icon-rounded medium"&gt;&lt;i class="easycons-lifebuoy"&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;span class="icon-rounded large"&gt;&lt;i class="easycons-lifebuoy"&gt;&lt;/i&gt;&lt;/span&gt;
+                        </pre>
+
+                        <hr>
+                        <h2 class="styled" id="pricingtables">Pricing tables</h2>
+
+                        <h3>Simple pricing table</h3>
+                        <div class="doc-example">
+                            <div class="pricing-table">
+                                <header class="pricing-header">
+                                    <h2>Standard</h2>
+                                </header>
+                                <div class="pricing-rate">
+                                    <span class="price">$16<small>/mo</small></span>
+                                    <small>Or bill $180/year and get 10% discount</small>
+                                </div>
+                                <ul class="pricing-features">
+                                    <li><strong>8 pages, gallery and blogs</strong></li>
+                                    <li><strong>500 GB Bandwidth</strong></li>
+                                    <li><strong>1 GB storage</strong></li>
+                                    <li>Custom domain</li>
+                                    <li>24/7 support</li>
+                                </ul>
+                                <footer class="pricing-footer">
+                                    <a href="#" class="btn shaded">Get started</a>
+                                </footer>
+                            </div>
+                        </div>
+                        <pre class="doc-code">
+&lt;div class="pricing-table"&gt;
+    &lt;header class="pricing-header"&gt;
+        &lt;h2&gt;Standard&lt;/h2&gt;
+    &lt;/header&gt;
+    &lt;div class="pricing-rate"&gt;
+        &lt;span class="price"&gt;$16&lt;small&gt;/mo&lt;/small&gt;&lt;/span&gt;
+        &lt;small&gt;Or bill $180/year and get 10% discount&lt;/small&gt;
+    &lt;/div&gt;
+    &lt;ul class="pricing-features"&gt;
+        &lt;li&gt;&lt;strong&gt;8 pages, gallery and blogs&lt;/strong&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;500 GB Bandwidth&lt;/strong&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;strong&gt;1 GB storage&lt;/strong&gt;&lt;/li&gt;
+        &lt;li&gt;Custom domain&lt;/li&gt;
+        &lt;li&gt;24/7 support&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;footer class="pricing-footer"&gt;
+        &lt;a href="#" class="btn shaded"&gt;Get started&lt;/a&gt;
+    &lt;/footer&gt;
+&lt;/div&gt;
+                        </pre>
+
+                        <h3>Popular pricing table</h3>
+                        <div class="doc-example">
+                            <div class="pricing-wrapper">
+                                <div class="pricing-table pricing3 popular dark">
+                                    <header class="pricing-header">
+                                        <h2>Most Popular</h2>
+                                    </header>
+                                    <div class="pricing-rate">
+                                        <span class="price">$8<small>/mo</small></span>
+                                        <small>Or bill $180/year and get 10% discount</small>
+                                    </div>
+                                    <ul class="pricing-features">
+                                        <li><strong>8 pages, gallery and blogs</strong></li>
+                                        <li><strong>500 GB Bandwidth</strong></li>
+                                        <li><strong>1 GB storage</strong></li>
+                                        <li>Custom domain</li>
+                                        <li>24/7 support</li>
+                                    </ul>
+                                    <footer class="pricing-footer">
+                                        <a href="#" class="btn shaded">Get started</a>
+                                    </footer>
+                                </div>
+                            </div>
+                        </div>
+                        <pre class="doc-code">
+&lt;div class="pricing-wrapper"&gt;
+    &lt;div class="pricing-table pricing3 popular dark"&gt;
+        &lt;header class="pricing-header"&gt;
+            &lt;h2&gt;Most Popular&lt;/h2&gt;
+        &lt;/header&gt;
+        &lt;div class="pricing-rate"&gt;
+            &lt;span class="price"&gt;$8&lt;small&gt;/mo&lt;/small&gt;&lt;/span&gt;
+            &lt;small&gt;Or bill $180/year and get 10% discount&lt;/small&gt;
+        &lt;/div&gt;
+        &lt;ul class="pricing-features"&gt;
+            &lt;li&gt;&lt;strong&gt;8 pages, gallery and blogs&lt;/strong&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;500 GB Bandwidth&lt;/strong&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;1 GB storage&lt;/strong&gt;&lt;/li&gt;
+            &lt;li&gt;Custom domain&lt;/li&gt;
+            &lt;li&gt;24/7 support&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;footer class="pricing-footer"&gt;
+            &lt;a href="#" class="btn shaded"&gt;Get started&lt;/a&gt;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+
+                        <h3>Pricing table grid</h3>
+                        <p>You can have 2 to 5 pricing tables side to side.</p>
+
+                        <h4>2 columns pricing tables</h4>
+                        <pre class="doc-code">
+&lt;div class="pricing-wrapper"&gt;
+    &lt;div class="pricing-table pricing2"&gt;
+        ...
+    &lt;/div&gt;
+    &lt;div class="pricing-table pricing2"&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+
+                        <h4>3 columns pricing tables</h4>
+                        <pre class="doc-code">
+&lt;div class="pricing-wrapper"&gt;
+    &lt;div class="pricing-table pricing3"&gt;
+        ...
+    &lt;/div&gt;
+    &lt;div class="pricing-table pricing3"&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+
+                        <h4>4 columns pricing tables</h4>
+                        <pre class="doc-code">
+&lt;div class="pricing-wrapper"&gt;
+    &lt;div class="pricing-table pricing4"&gt;
+        ...
+    &lt;/div&gt;
+    &lt;div class="pricing-table pricing4"&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+
+                        <h4>5 columns pricing tables</h4>
+                        <pre class="doc-code">
+&lt;div class="pricing-wrapper"&gt;
+    &lt;div class="pricing-table pricing5"&gt;
+        ...
+    &lt;/div&gt;
+    &lt;div class="pricing-table pricing5"&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+
+                        <h4>6 columns pricing tables</h4>
+                        <pre class="doc-code">
+&lt;div class="pricing-wrapper"&gt;
+    &lt;div class="pricing-table pricing6"&gt;
+        ...
+    &lt;/div&gt;
+    &lt;div class="pricing-table pricing6"&gt;
+        ...
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </pre>
+
+                        <hr>
+                        <h2 class="styled" id="contact">Contact & support</h2>
+
+                        <h4><strong>If you bought this theme</strong> and you don't find what you want here, feel free to <strong><a href="mailto:vincent@celavi.fr?subject=[bulb%20theme]">contact me via email</a></strong>. <strong>If you don't buy it yet</strong>, please <strong>contact me via ThemeForest</strong>.</h4>
+
+                        <p>
+                            <figure class="glossy">
+                                <img src="https://si0.twimg.com/profile_images/1802075995/428212_3226305299374_1318790826_3236174_1793423328_n_bigger.jpeg" alt="Vincent Bianciotto">
+                            </figure>
+                        </p>
+                        <h4 class="tight">Vincent Bianciotto</h4>
+                        <p><a href="mailto:vincent@celavi.fr?subject=[bulb%20theme]">vincent@celavi.fr</a><br><a href="http://www.celavi.fr">www.celavi.fr</a><br><a href="http://twitter.com/vinzcelavi">@vinzcelavi</a></p>
+
+
+                        <hr>
+                        <h2 class="styled" id="credits">Credits</h2>
+
+                        <ul>
+                            <li>Photographies in preview site by <a href="http://www.aureflex.fr">Aurélien Avril</a></li>
+                            <li><a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap</a> for js plugins and grid system by Twitter</li>
+                            <li><a href="http://isotope.metafizzy.co/">Isotope</a> by <a href="http://desandro.com/">David DeSandro</a></li>
+                            <li><a href="http://responsive-slides.viljamis.com/">ResponsiveSlides</a> by <a href="http://viljamis.com/">@viljamis</a></li>
+                            <li><a href="http://mediaelementjs.com/">MediaElements.js</a> by John Dyer</li>
+                            <li><a href="http://hpneo.github.com/gmaps/">gmaps.js</a> by <a href="https://github.com/hpneo">hpneo</a></li>
+                            <li><strongs>Easycons</strongs> (coming soon on github) & <a href="https://github.com/Vinzcelavi/Mobile-Navigation">Mobile Navigation</a> by <a href="http://celavi.fr">my-self</a></li>
+                            <li><a href="http://modernizr.com/">Modernizr</a> by <a href="http://farukat.es/">Faruk Ateş</a>, <a href="http://paulirish.com/">Paul Irish</a>, <a href="http://alexsexton.com/">Alex Sexton</a>, <a href="Ryan Seddon">Ryan Seddon</a> and <a href="http://protofunc.com/">Alexander Farkas</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#nav" class="top-menu-btn">Top menu</a>
+            <div class="push"></div>
+        </div> <!-- #wrapper -->
+
+</body>
+</html>

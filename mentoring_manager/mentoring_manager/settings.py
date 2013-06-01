@@ -150,6 +150,7 @@ INSTALLED_APPS = (
 
     # For db migrations or changes
     'south',
+    'less',
 )
 
 # A sample logging configuration. The only tangible logging

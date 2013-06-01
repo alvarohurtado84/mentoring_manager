@@ -1,6 +1,11 @@
 // --------------------------------------------------------------------------------------------------------------------------------
 //		Layout
 
+.clear{
+	clear:both;
+}
+.ffix:after{clear:both;content:".";display:block;height:0;visibility:hidden}
+
 html, body {
 	height: 100%;
 }
@@ -549,7 +554,7 @@ img {
 	}
 
 	.footer-top {
-		margin-top: 20px;
+		// margin-top: 20px;
 		height: 195px;
 		overflow: hidden;
 
