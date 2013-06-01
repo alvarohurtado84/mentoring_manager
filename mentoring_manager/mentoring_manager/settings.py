@@ -89,6 +89,7 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     '/home/hhkaos/workspace/mentoring_manager/mentoring_manager/static',
+    '/Users/alvarohurtado84/Dropbox/mentoring_manager/mentoring_manager/static',
 )
 
 # List of finder classes that know how to find static files in
@@ -126,6 +127,7 @@ WSGI_APPLICATION = 'mentoring_manager.wsgi.application'
 
 TEMPLATE_DIRS = (
     "/home/hhkaos/workspace/mentoring_manager/mentoring_manager/templates",
+    "/Users/alvarohurtado84/Dropbox/mentoring_manager/mentoring_manager/templates",
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.

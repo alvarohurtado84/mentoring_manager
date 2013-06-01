@@ -5,6 +5,7 @@ Dependencies:
 * Python2.7
 * Django-1.5.1
 * South-0.8.1
+* Django-less
 
 
 ##How to install##
@@ -17,6 +18,10 @@ pip install Django
 
 ```$
 pip install south
+```
+
+```$
+pip install django-less
 ```
 
 ##How to run##
