@@ -1,4 +1,3 @@
-
 # Mentoring Manager is a web application to manage mentoring sessions between mentors and entrepreneurs.
 # Copyright (C) 2013  Alvaro Hurtado Mochon (alvarohurtado84@gmail.com)
 #
@@ -15,26 +14,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from django.forms import ModelForm
+from django.conf.urls import patterns, include, url
 
-from people.models import Person
-from django.contrib.auth.models import User
-
-class PersonForm(ModelForm):
-    class Meta:
-        model = Person
-        exclude = ["user"]
-        
-class UserForm(ModelForm):
-    class Meta:
-        model = User
-        fields = ['username', 'email', 'password']
-        
-    def save(self, force_insert=False, force_update=False, commit=True):
-        m = super(UserForm, self).save(commit=False)
-        
-        m.set_password(self.cleaned_data["password"])
-        if commit:
-            m.save()
-        
-        return m
+urlpatterns = patterns('',
+    
+    url(r'(?P<username>[a-zA-Z0-9\-\_]+)/edit/$', 'people.views.edit', name="person_edit"),
+    url(r'(?P<username>[a-zA-Z0-9\-\_]+)/$', 'people.views.profile', name="person_profile"),
+    
+    
+)

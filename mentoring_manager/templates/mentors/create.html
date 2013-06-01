@@ -2,12 +2,18 @@
 
 
 {% block content %}
-{{ msg }}
-<form action="{% url mentors_create %}" method="post">   
-{% csrf_token %}
-
-{{ form }}
-
-<input type="submit"/>
-</form>
+<div class="page-heading-wrapper">
+    <div class="container">
+    
+    {{ msg }}
+    <form action="{% url "mentors_create" %}" method="post">   
+    {% csrf_token %}
+    
+    {{ form }}
+    
+    <input type="submit"/>
+    </form>
+    
+    </div>
+</div>
 {% endblock %}
