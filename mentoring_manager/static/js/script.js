@@ -12,10 +12,17 @@ jQuery.noConflict();
 (function($) {
     $(function() {
 
-
+        $('.menu a').click(function(){
+            $('.menu a.active').removeClass("active");
+            $(this).addClass("active");
+        });
         $('.menu a,.anchor').click(function(){
             var offset=$( $.attr(this, 'href') ).offset().top-70
-            var time=offset*500/700;
+            if(offset<0){
+                offset=0;
+                time=500;
+            }else
+                var time=offset*500/700;
             $('html, body').animate({
                 scrollTop: offset
             }, time);
