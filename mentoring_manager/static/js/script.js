@@ -13,7 +13,7 @@ jQuery.noConflict();
     $(function() {
 
 
-        $('.menu a').click(function(){
+        $('.menu a,.anchor').click(function(){
             var offset=$( $.attr(this, 'href') ).offset().top-70
             var time=offset*500/700;
             $('html, body').animate({
