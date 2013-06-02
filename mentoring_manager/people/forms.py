@@ -23,6 +23,7 @@ from django.contrib.auth.models import User
 class PersonForm(ModelForm):
     class Meta:
         model = Person
+        exclude = ["user"]
         
 class UserForm(ModelForm):
     class Meta:

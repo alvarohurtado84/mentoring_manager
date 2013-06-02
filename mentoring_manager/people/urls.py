@@ -16,31 +16,10 @@
 
 from django.conf.urls import patterns, include, url
 
-# ADMIN
-from django.contrib import admin
-admin.autodiscover()
-
 urlpatterns = patterns('',
-    # Home
-    url(r'^$', 'mentoring_manager.views.home', name='home'),
-    url(r'^tos/$', 'mentoring_manager.views.tos', name='tos'),
-
-    # url(r'^mentoring_manager/', include('mentoring_manager.foo.urls')),
-
-    # People
-    url(r'^people/', include('people.urls')),
-
-    # Mentors
-    url(r'^mentors/', include('mentors.urls')),
-
-    # Entrepreneurs
-    url(r'^entrepreneurs/', include('entrepreneurs.urls')),
-
-    # ADMIN
-    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    url(r'^admin/', include(admin.site.urls)),
     
-    # ACCOUNTS
-    url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
-    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout'),
+    url(r'(?P<username>[a-zA-Z0-9\-\_]+)/edit/$', 'people.views.edit', name="person_edit"),
+    url(r'(?P<username>[a-zA-Z0-9\-\_]+)/$', 'people.views.profile', name="person_profile"),
+    
+    
 )
