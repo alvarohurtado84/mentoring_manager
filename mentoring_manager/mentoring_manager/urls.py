@@ -23,6 +23,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'mentoring_manager.views.home', name='home'),
+    url(r'^tos/$', 'mentoring_manager.views.tos', name='tos'),
 
     # url(r'^mentoring_manager/', include('mentoring_manager.foo.urls')),
 

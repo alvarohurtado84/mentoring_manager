@@ -95,12 +95,12 @@
         <div class="row">
             <div class="span6">
                 <img src="{{STATIC_URL}}images/icons/rocket-startup.png">
-                <a href="#" class="btn">I'm a Startup</a>
+                <a href="{% url "entrepreneurs_create" %}" class="btn">I'm a Startup</a>
             </div>
 
             <div class="span6">
                 <img src="{{STATIC_URL}}images/icons/master-mentor.png">
-                <a href="#" class="btn">I'm a Mentor</a>
+                <a href="{% url "mentors_create" %}" class="btn">I'm a Mentor</a>
             </div>
         </div>
     </div>
