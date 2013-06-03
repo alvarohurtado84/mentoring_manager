@@ -24,3 +24,13 @@ class Mentor(models.Model):
     """Contains the data of a Person related only with the mentor role."""
     
     person = models.OneToOneField(Person)
+    
+    # Areas where you can help
+    business_strategy = models.BooleanField()
+    design = models.BooleanField()
+    technology = models.BooleanField()
+    marketing_sales = models.BooleanField()
+    legal = models.BooleanField()
+    human_resources = models.BooleanField()
+    others_areas = models.CharField(max_length=100)
+    
