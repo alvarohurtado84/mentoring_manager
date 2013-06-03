@@ -21,7 +21,9 @@ from django.shortcuts import render_to_response
 from django.shortcuts import get_object_or_404
 
 from django.http import Http404
+from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator
+from django.core.urlresolvers import reverse
 from django.template import RequestContext
 
 from django.contrib.auth.decorators import login_required
@@ -35,8 +37,8 @@ from people.forms import UserForm
 from people.forms import PersonForm
 
 @login_required
-def edit(request, username):
-    user = get_object_or_404(User, username=username)
+def edit(request):
+    user = request.user
     msg = None
     
     if request.method == "POST":
@@ -44,9 +46,9 @@ def edit(request, username):
         if form.is_valid():
             form.save()
             
-            msg = _("Sus datos se han guardado correctamente.")
+            msg = _("Your data have been save.")
         else:
-            msg = _("Ha ocurrido algun error.")
+            msg = _("Sorry, something went wrong.")
             
     else:
         form = PersonForm(instance=user.person)
@@ -61,12 +63,36 @@ def edit(request, username):
 
 def profile(request, username):
     user = get_object_or_404(User, username=username)
+    person = user.person
     
-    return render_to_response("person/profile.html",
-                {
-                "person": user.person,
-                },
-                context_instance=RequestContext(request)
-            )
-        
+    if person.is_mentor() and person.is_entrepreneur():
+        return render_to_response("person/profile.html",
+                    {
+                    "person": person,
+                    },
+                    context_instance=RequestContext(request)
+                )
+    
+    elif person.is_mentor():
+        return HttpResponseRedirect(
+            reverse("mentors_profile", args=[user.username,]))
+    
+    elif person.is_entrepreneur():
+        return HttpResponseRedirect(
+            reverse("entrepreneurs_profile", args=[user.username,]))
+    
+    else:
+        raise Http404
+
+@login_required
+def person_home(request):
+    user = request.user
+    
+    return render_to_response("person/home.html",
+            {
+            "person": user.person,
+            },
+            context_instance=RequestContext(request)
+        )
+    
     

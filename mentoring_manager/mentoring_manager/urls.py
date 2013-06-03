@@ -15,6 +15,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from django.conf.urls import patterns, include, url
+from django.views.generic import TemplateView
 
 # ADMIN
 from django.contrib import admin
@@ -23,12 +24,9 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Home
     url(r'^$', 'mentoring_manager.views.home', name='home'),
-    url(r'^tos/$', 'mentoring_manager.views.tos', name='tos'),
 
-    # url(r'^mentoring_manager/', include('mentoring_manager.foo.urls')),
-
-    # People
-    url(r'^people/', include('people.urls')),
+    # People access (Profiles)
+    url(r'^profile/', include('people.urls')),
 
     # Mentors
     url(r'^mentors/', include('mentors.urls')),
@@ -43,4 +41,12 @@ urlpatterns = patterns('',
     # ACCOUNTS
     url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
     url(r'^accounts/logout/$', 'django.contrib.auth.views.logout'),
+    
+    # TOS
+    url(
+        r'^tos/$',
+        TemplateView.as_view(template_name='tos.html'),
+        name = 'tos',
+        ),
 )
+
