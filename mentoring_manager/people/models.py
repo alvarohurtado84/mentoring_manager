@@ -55,6 +55,9 @@ class Person(models.Model):
         except:
             return False
     
+    is_mentor.boolean = True
+    
+    
     def is_entrepreneur(self):
         """Check if this Person is an entrepreneur."""
         try:
@@ -63,4 +66,4 @@ class Person(models.Model):
         except:
             return False
     
-    
+    is_entrepreneur.boolean = True
