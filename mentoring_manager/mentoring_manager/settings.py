@@ -186,6 +186,9 @@ LOGGING = {
 }
 
 
+# Our configs
+LOGIN_REDIRECT_URL = "/profile/"
+
 
 # Mentoring Manager Configuration
 ENTREPRENEUR_LIST_SIZE = 10

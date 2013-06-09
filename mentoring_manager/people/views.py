@@ -88,11 +88,23 @@ def profile(request, username):
 def person_home(request):
     user = request.user
     
-    return render_to_response("person/home.html",
-            {
-            "person": user.person,
-            },
-            context_instance=RequestContext(request)
-        )
+    if user.person.is_mentor() and user.person.is_entrepreneur():
+        return render_to_response("person/home.html",
+                    {
+                    "person": user.person,
+                    },
+                    context_instance=RequestContext(request)
+                )
+    
+    elif user.person.is_mentor():
+        return HttpResponseRedirect(
+            reverse("mentors_profile", args=[user.username,]))
+    
+    elif user.person.is_entrepreneur():
+        return HttpResponseRedirect(
+            reverse("entrepreneurs_profile", args=[user.username,]))
+    
+    else:
+        raise Http404
     
     

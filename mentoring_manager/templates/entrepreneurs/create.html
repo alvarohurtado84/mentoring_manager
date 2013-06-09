@@ -6,10 +6,12 @@
     <div class="container">   
     
     {{ msg }}
-    <form action="{% url "entrepreneurs_create" %}" method="post">   
+    <form action="{% url "entrepreneurs_create" %}" method="post"  enctype='multipart/form-data'>   
     {% csrf_token %}
     
-    {{ form }}
+    {{ user_form.as_p }}
+    <hr/>
+    {{ startup_form.as_p}}
     
     <input type="submit"/>
     </form>

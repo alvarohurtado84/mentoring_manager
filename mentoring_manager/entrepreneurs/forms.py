@@ -18,8 +18,14 @@
 from django.forms import ModelForm
 
 from entrepreneurs.models import Entrepreneur
+from entrepreneurs.models import Startup
 
 
 class EntrepreneurForm(ModelForm):
     class Meta:
         model = Entrepreneur
+        
+        
+class StartupForm(ModelForm):
+    class Meta:
+        model = Startup

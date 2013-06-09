@@ -84,7 +84,7 @@ def create(request):
             mentor.person = person
             mentor.save()
             
-            msg = _("Ha creado su usuario correctamente.")
+            msg = _("Your user has been created successfully.")
             
             return render_to_response("mentors/create.html",
                 {
