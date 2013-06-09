@@ -23,3 +23,4 @@ from mentors.models import Mentor
 class MentorForm(ModelForm):
     class Meta:
         model = Mentor
+        exclude = ["person",]

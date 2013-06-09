@@ -71,12 +71,15 @@ def create(request):
     """Render a form to create a mentor."""
     
     if request.method == "POST":
-        form = UserForm(request.POST)
-        if form.is_valid():
-            user = form.save()
+        
+        user_form = UserForm(request.POST)
+        mentor_form = MentorForm(request.POST)
+        
+        if user_form.is_valid() and mentor_form.is_valid():
+            user = user_form.save()
             
             person = Person()
-            mentor = Mentor()
+            mentor = mentor_form.save(commit=False)
             
             person.user = user
             person.save()
@@ -96,7 +99,8 @@ def create(request):
         else:
             return render_to_response("mentors/create.html",
                 {
-                    "form": form,
+                    "user_form": user_form,
+                    "mentor_form": mentor_form,
                 },
                 context_instance=RequestContext(request)
             )
@@ -104,7 +108,8 @@ def create(request):
     else:
         return render_to_response("mentors/create.html",
             {
-                "form": UserForm(),
+                "user_form": UserForm(),
+                "mentor_form": MentorForm(),
             },
             context_instance=RequestContext(request)
         )
