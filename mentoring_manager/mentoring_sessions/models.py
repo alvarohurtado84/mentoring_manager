@@ -16,13 +16,16 @@ class Session(models.Model):
     when = models.DateTimeField(blank=True, null=True)
     
     # Negotiation of the session
-    mentor_answered = models.Boolean(default=False)
-    mentor_acceptance = models.Boolean(default=True)
+    mentor_answered = models.BooleanField(default=False)
+    mentor_acceptance = models.BooleanField(default=True)
     why_not = models.TextField(blank=True, null=True)
     
     # Confirmation
-    mentor_confirmation = models.Boolean(default=False)
-    entrepreneur_confirmation = models.Boolean(default=False)
+    mentor_confirmation = models.BooleanField(default=False)
+    entrepreneur_confirmation = models.BooleanField(default=False)
+    
+    # More data
+    created_at = models.DateTimeField(auto_now_add=True)
     
     
 class Message(models.Model):
