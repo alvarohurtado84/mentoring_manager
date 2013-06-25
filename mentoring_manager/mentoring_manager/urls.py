@@ -33,6 +33,9 @@ urlpatterns = patterns('',
 
     # Entrepreneurs
     url(r'^entrepreneurs/', include('entrepreneurs.urls')),
+    
+    # Mentoring sessions
+    url(r'^sessions/', include('mentoring_sessions.urls')),
 
     # ADMIN
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

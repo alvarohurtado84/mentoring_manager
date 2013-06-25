@@ -24,7 +24,7 @@ from mentoring_sessions.models import Message
 class SessionForm(ModelForm):
     class Meta:
         model = Session
-        #exclude = ["person",]
+        exclude = ["mentor", "entrepreneur", ]
         
 class MessageForm(ModelForm):
     class Meta:

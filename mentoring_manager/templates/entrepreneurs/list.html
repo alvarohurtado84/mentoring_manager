@@ -2,9 +2,14 @@
 
 
 {% block content %}
+  <h1>Mentor list</h1>
 
-    {% for mentor in mentors %}
-        {{ mentor }}
+    <ul>
+    {% for entrepreneur in entrepreneurs %}
+        <li>{{ entrepreneur }}</li>
+      {% empty %}
+        <li>There are no mentors yet</li>
     {% endfor %}
+  </ul>
 
 {% endblock %}

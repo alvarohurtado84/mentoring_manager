@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="page-heading-wrapper">
+    <div class="container">   
+    
+    <h2>{{ mentor.person.user.username }}</h2>
+    
+    {{ msg }}
+    <form action="{% url "apply_for_session" mentor.person.user.username %}" method="post">   
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+    
+    <input type="submit"/>
+    </form>
+    
+    </div>
+</div>
+{% endblock %}

@@ -1,12 +1,17 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 
 {% block content %}
+<div class="page-heading-wrapper">
+    <div class="container">
+    
+    <br><br><br>  
+    {{ mentor }}
+    
+    {% if user.person.is_entrepreneur %}
+        <a href="{% url "apply_for_session" mentor.person.user.username %}" >{% trans "Apply for mentoring session."%}</a>
+    {% endif %}
 
-{{ mentor }}
-
-{% if user.person.is_entrepreneur %}
-    <a href="{% url "apply_for_session" mentor.person.username %}" >{% trans "Solicitar sesión de méntorig"%}</a>
-{% endif %}
-
+    </div>
+</div>
 {% endblock %}

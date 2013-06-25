@@ -1,15 +1,13 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 
 {% block content %}
-  <h1>Mentor list</h1>
 
-    <ul>
-    {% for entrepreneur in entrepreneurs %}
-        <li>{{ entrepreneur }}</li>
-      {% empty %}
-        <li>There are no mentors yet</li>
+    {% for mentor in mentors %}
+        <p>
+            {{ mentor.person.user.username }}
+            <a href="{% url "mentors_profile" mentor.person.user.username %}">{% trans "Profile of mentor." %}</a>
+        </p>
     {% endfor %}
-  </ul>
 
 {% endblock %}

@@ -44,6 +44,8 @@ def create(request, username):
     if not user.person.is_mentor():
         raise Http404
     
+    mentor = user.person.mentor
+    
     if not request.user.person.is_entrepreneur():
         raise Http404
     
@@ -58,7 +60,8 @@ def create(request, username):
             return render_to_response("mentoring_sessions/create.html",
                 {
                     "session": session,
-                    "msg": _("La sesión ha sido solicitada.")
+                    "mentor": mentor,
+                    "msg": _("You have applied for a session successfully.")
                 },
                 context_instance=RequestContext(request)
             )
@@ -67,6 +70,7 @@ def create(request, username):
             return render_to_response("mentoring_sessions/create.html",
                 {
                     "form": session_form,
+                    "mentor": mentor,
                 },
                 context_instance=RequestContext(request)
             )
@@ -76,6 +80,7 @@ def create(request, username):
         return render_to_response("mentoring_sessions/create.html",
                 {
                     "form": session_form,
+                    "mentor": mentor,
                 },
                 context_instance=RequestContext(request)
             )
@@ -109,21 +114,23 @@ def details(request, id):
     
     session = get_object_or_404(Session, id=id)
     
-    if session.mentor is request.user.person.mentor and request.user.person.is_mentor():
-        return render_to_response("mentoring_sessions/details.html",
-                {
-                    "session": session,
-                },
-                context_instance=RequestContext(request)
-            )
+    print "Was here"
+    if request.user.person.is_mentor():
+        if session.mentor == request.user.person.mentor:
+            return render_to_response("mentoring_sessions/details.html",
+                    {
+                        "session": session,
+                    },
+                    context_instance=RequestContext(request)
+                )
 
-    elif session.entrepreneur is request.user.person.entrepreneur and request.user.person.is_entrepreneur():
-        return render_to_response("mentoring_sessions/details.html",
-                {
-                    "session": session,
-                },
-                context_instance=RequestContext(request)
-            )
-        
-    else:
-        raise Http404
+    elif request.user.person.is_entrepreneur():
+        if session.entrepreneur == request.user.person.entrepreneur:
+            return render_to_response("mentoring_sessions/details.html",
+                    {
+                        "session": session,
+                    },
+                    context_instance=RequestContext(request)
+                )
+           
+    raise Http404
