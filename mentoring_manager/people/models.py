@@ -27,10 +27,25 @@ class Person(models.Model):
     user = models.OneToOneField(User)
     
     avatar = models.ImageField(upload_to="avatars/people")
+    # bio
     description = models.TextField()
+    
+    country = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
     
     twitter_user = models.CharField(max_length=50)
     linkedin_profile = models.URLField()
+    # others social profiles
+    others_social_profiles = models.TextField()
+    
+    # why are you here? what are you looking for, interests, who can you help
+    # background / aptitudes
+    why = models.TextField()
+    
+    # Languages
+    english = models.BooleanField()
+    spanish = models.BooleanField()
+    others_languages = models.CharField(max_length=100)
     
     def is_mentor(self):
         """Check if this Person is a mentor."""
@@ -40,6 +55,9 @@ class Person(models.Model):
         except:
             return False
     
+    is_mentor.boolean = True
+    
+    
     def is_entrepreneur(self):
         """Check if this Person is an entrepreneur."""
         try:
@@ -48,4 +66,4 @@ class Person(models.Model):
         except:
             return False
     
-    
+    is_entrepreneur.boolean = True

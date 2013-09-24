@@ -17,15 +17,16 @@
 
 from django.forms import ModelForm
 
-from entrepreneurs.models import Entrepreneur
-from entrepreneurs.models import Startup
+from mentoring_sessions.models import Session
+from mentoring_sessions.models import Message
 
 
-class EntrepreneurForm(ModelForm):
+class SessionForm(ModelForm):
     class Meta:
-        model = Entrepreneur
+        model = Session
+        exclude = ["mentor", "entrepreneur", ]
         
-        
-class StartupForm(ModelForm):
+class MessageForm(ModelForm):
     class Meta:
-        model = Startup
+        model = Message
+    

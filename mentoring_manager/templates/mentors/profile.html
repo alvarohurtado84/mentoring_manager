@@ -1,8 +1,38 @@
 {% extends "base.html" %}
+{% load i18n %}
 
+
+{% block menu %}
+    {% include "menu.html" %}
+{% endblock %}            
 
 {% block content %}
 
+<nav class="breadcrumb-wrapper">
+  <ul class="breadcrumb">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><span>The european languages are members...</span></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="row">
+      <div class="span12">
+
+        {{ mentor }}
+    
+        
+        <a href="{% url "apply_for_session" mentor.person.user.username %}" >{% trans "Apply for mentoring session."%}</a>
+        
+    </div>
+  </div>
+</div>
+
+
 entrepreneur={{ entrepreneur }}
 
+
+    </div>
+</div>
 {% endblock %}

@@ -18,8 +18,13 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     
-    url(r'(?P<username>[a-zA-Z0-9\-\_]+)/edit/$', 'people.views.edit', name="person_edit"),
+    # Modify or update the user profile
+    url(r'edit/$', 'people.views.edit', name="person_edit"),
+    
+    # Profile of any user
     url(r'(?P<username>[a-zA-Z0-9\-\_]+)/$', 'people.views.profile', name="person_profile"),
     
+    # Profile of the logged user
+    url(r'$', 'people.views.person_home', name="person_home"),
     
 )

@@ -1,15 +1,39 @@
 {% extends "base.html" %}
+{% load i18n %}
 
+
+{% block body-class %}class="portfolio1"{% endblock %}
+
+{% block menu %}
+    {% include "menu.html" with mentors=1 %}
+{% endblock %}            
 
 {% block content %}
-  <h1>Mentor list</h1>
 
-    <ul>
-    {% for entrepreneur in entrepreneurs %}
-        <li>{{ entrepreneur }}</li>
-      {% empty %}
-        <li>There are no mentors yet</li>
-    {% endfor %}
-  </ul>
+  <div class="page-heading-wrapper">
+      <div class="container">
+          <div class="row">
+              <div class="page-heading span12">
+                  <h1>Our mentors</h1>
+              </div>
+          </div>
+      </div>
+  </div>
 
+  <div class="container">
+    <div class="row">
+        <div class="span12">
+          <ul class="center">
+            {% for mentor in mentors %}
+              <li>
+                <a href="{% url "mentors_profile" mentor.person.user.username %}">
+                  <img src="{{STATIC_URL}}{{mentor.person.avatar}}"><br>
+                {{ mentor.person.user.username }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+  </div>
 {% endblock %}

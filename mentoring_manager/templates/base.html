@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
 
-        <title>Mentor - The online mentoring platform for early staged Startups</title>
+        <title>Mento - The online mentoring platform for early staged Startups</title>
         <meta name="description" content="bulb is a creative agency that create websites, mobile apps & digital content">
         <meta name="author" content="Vincent Bianciotto">
         <meta name="viewport" content="width=device-width">
@@ -27,7 +27,7 @@
 
 
     </head>
-    <body class="homepage" id="home">
+    <body {% block body-class %}{% endblock %}>
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -38,7 +38,7 @@
                 <div class="header container">
                     <div class="row">
                         <div class="span12">
-                            <div class="logo-top">Mentor</div>
+                            <div class="logo-top">Mento</div>
                             <!--<a href="./index.html" class="logo-top"><img src="{{STATIC_URL}}images/logo.png" alt="bulb, creative agency" /></a>-->
                             <a href="#" class="toggle-mobilenav" id="toggleMobilenav"><i class="easycons-mobile-nav"></i></a>
                         </div>
@@ -46,42 +46,32 @@
                 </div>
             </header>
 
-            <nav class="menu-wrapper">
-                <ul class="menu transitions">
-                    <li>
-                        <a href="#home" class="active anchor">Intro</a>
-                    </li>
-                    <li>
-                        <a href="#howto">How to play</a>
-                        <!--<ul class="sub-menu">
-                            <li><a href="./index.html">Homepage 1 - without slider</a></li>
-                            <li><a href="./homepage2.html">Homepage 2 - with a big slider</a></li>
-                            <li><a href="./homepage3.html">Homepage 3 - with a small slider</a></li>
-                            <li>
-                                <a href="#">A sub-menu item</a>
-                                <ul class="sub-menu">
-                                    <li><a href="#">Menu item 1</a></li>
-                                    <li><a href="#">Menu item 2</a></li>
-                                    <li><a href="#">Menu item 3</a></li>
-                                    <li><a href="#">Menu item 4</a></li>
-                                </ul>
-                            </li>
-                        </ul>-->
-                    </li>
-                    <li>
-                        <a href="#signup">Join a team</a>
-                    </li>
-                    <li>
-                        <a href="#mentors">Mentors</a>
-                    </li>
-                    <li>
-                        <a href="#startups">Startups</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Get in touch</a>
-                    </li>
-                </ul>
-            </nav>
+            {% block menu %}
+                <nav class="menu-wrapper">
+                    <ul class="menu transitions">
+                        <li>
+                            <a href="#home" class="active anchor">Intro</a>
+                        </li>
+                        <li>
+                            <a href="#howto">How to play</a>
+                        </li>
+                        <li>
+                            <a href="#signup">Join a team</a>
+                        </li>
+                        <li>
+                            <a href="#mentors">Mentors</a>
+                        </li>
+                        <li>
+                            <a href="#startups">Startups</a>
+                        </li>
+                        <li>
+                            <a href="#contact">Get in touch</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            {% endblock %}            
+
             {% block content %}
             {% endblock %}
         </div> <!-- #wrapper -->
@@ -107,7 +97,7 @@
                             We are not in a physical location, so the only way to get in touch with us is though email.<br>
                         </p>
                         <p>
-                            If you are interested on joining our team, do a partnership, etc. please send us an email to <a href="#">team@mento.re</a>
+                            If you are interested on joining our team, do a partnership, etc. please send us an email to <a href="mailto:team@mento.in">team@mento.in</a>
                         </p>
 
                     </div>
@@ -118,23 +108,23 @@
                 <div class="container">
                     <div class="row">
                         <div class="span8">
-                            <span class="copyright">Mento.re <small>&copy; 2012</small></span>
+                            <span class="copyright">Mento.in <small>&copy; 2013</small></span>
                             <nav class="footer-menu">
                                 <ul>
-                                    <li><a href="{% url "tos" %}">Terms and conditions</a></li>
-                                    <li><a href="#">Blog</a></li>
+                                    <!-- <li><a href="{% url "tos" %}">Terms and conditions</a></li>
+                                    <li><a href="#">Blog</a></li> -->
+                                    <li><a href="#">Switch language to Spanish</a></li>
                                 </ul>
                             </nav>
                         </div>
                         <div class="span4">
                             <nav class="social-icons">
                                 <ul>
-                                    <li><a href="#"><i class="easycons-facebook-rounded"></i></a></li>
-                                    <li><a href="#"><i class="easycons-twitter-rounded"></i></a></li>
-                                    <li><a href="#"><i class="easycons-google-plus-rounded"></i></a></li>
-                                    <li><a href="#"><i class="easycons-vimeo-rounded"></i></a></li>
-                                    <li><a href="#"><i class="easycons-youtube-rounded"></i></a></li>
-                                    <li><a href="#"><i class="easycons-skype-rounded"></i></a></li>
+                                    <li><a href="https://www.facebook.com/mento.in"><i class="easycons-facebook-rounded"></i></a></li>
+                                    <li><a href="https://twitter.com/mento_in"><i class="easycons-twitter-rounded"></i></a></li>
+                                    <li><a href="https://plus.google.com/b/112555575385982524629/112555575385982524629/about"><i class="easycons-google-plus-rounded"></i></a></li>
+                                    <li><a href="https://www.youtube.com/user/mento4startups"><i class="easycons-youtube-rounded"></i></a></li>
+                                    
                                 </ul>
                             </nav>
                         </div>

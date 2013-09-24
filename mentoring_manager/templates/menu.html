@@ -1,0 +1,22 @@
+<nav class="menu-wrapper">
+    <ul class="menu transitions">
+        <li>
+            <a href="{% url "home" %}">Intro</a>
+        </li>
+        <li>
+            <a href="#howto">How to play</a>
+        </li>
+        <li>
+            <a href="#signup">Join a team</a>
+        </li>
+        <li>
+            <a href="{% url "mentors_list" %}" {% if mentors == 1 %}class="active anchor" {% endif %}>Mentors</a>
+        </li>
+        <li>
+            <a href="#startups">Startups</a>
+        </li>
+        <li>
+            <a href="#contact">Get in touch</a>
+        </li>
+    </ul>
+</nav>

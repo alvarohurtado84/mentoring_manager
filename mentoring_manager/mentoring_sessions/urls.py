@@ -15,41 +15,21 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from django.conf.urls import patterns, include, url
-from django.views.generic import TemplateView
-
-# ADMIN
-from django.contrib import admin
-admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Home
-    url(r'^$', 'mentoring_manager.views.home', name='home'),
-
-    # People access (Profiles)
-    url(r'^profile/', include('people.urls')),
-
-    # Mentors
-    url(r'^mentors/', include('mentors.urls')),
-
-    # Entrepreneurs
-    url(r'^entrepreneurs/', include('entrepreneurs.urls')),
     
-    # Mentoring sessions
-    url(r'^sessions/', include('mentoring_sessions.urls')),
-
-    # ADMIN
-    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    url(r'^admin/', include(admin.site.urls)),
-    
-    # ACCOUNTS
-    url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
-    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout'),
-    
-    # TOS
     url(
-        r'^tos/$',
-        TemplateView.as_view(template_name='tos.html'),
-        name = 'tos',
+        r'session/(?P<id>[a-zA-Z0-9\-\_]+)/$',
+        'mentoring_sessions.views.details',
+        name="session_detail"
         ),
-)
+    
+    url(
+        r'apply/(?P<username>[a-zA-Z0-9\-\_]+)/$',
+        'mentoring_sessions.views.create',
+        name="apply_for_session"
+        ),
+    
+    url(r'$', 'mentoring_sessions.views.list', name="sessions_list"),
 
+)

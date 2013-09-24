@@ -31,6 +31,7 @@ from entrepreneurs.models import Entrepreneur
 from people.models import Person
 
 from entrepreneurs.forms import EntrepreneurForm
+from entrepreneurs.forms import StartupForm
 from people.forms import UserForm
 from people.forms import PersonForm
 
@@ -71,9 +72,13 @@ def create(request):
     """Render a form to create an entrepreneur."""
     
     if request.method == "POST":
-        form = UserForm(request.POST)
-        if form.is_valid():
-            user = form.save()
+        
+        user_form = UserForm(request.POST)
+        startup_form = StartupForm(request.POST,  request.FILES)
+        
+        if user_form.is_valid() and startup_form.is_valid():
+            user = user_form.save()
+            startup = startup_form.save()
             
             person = Person()
             entrepreneur = Entrepreneur()
@@ -82,9 +87,10 @@ def create(request):
             person.save()
             
             entrepreneur.person = person
+            entrepreneur.startup = startup
             entrepreneur.save()
             
-            msg = _("Ha creado su usuario correctamente")
+            msg = _("Your user and startup has been created successfully.")
             
             return render_to_response("entrepreneurs/create.html",
                 {
@@ -97,7 +103,8 @@ def create(request):
         else:
             return render_to_response("entrepreneurs/create.html",
                 {
-                    "form": form,
+                    "user_form": user_form,
+                    "startup_form": startup_form,
                 },
                 context_instance=RequestContext(request)
             )
@@ -105,7 +112,8 @@ def create(request):
     else:
         return render_to_response("entrepreneurs/create.html",
             {
-                "form": UserForm(),
+                "user_form": UserForm(),
+                "startup_form": StartupForm(),
             },
             context_instance=RequestContext(request)
         )

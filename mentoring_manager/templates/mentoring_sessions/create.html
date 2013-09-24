@@ -2,24 +2,20 @@
 
 
 {% block content %}
-
 <div class="page-heading-wrapper">
-    <div class="container">
+    <div class="container">   
+    
+    <h2>{{ mentor.person.user.username }}</h2>
     
     {{ msg }}
-    <form action="{% url "mentors_create" %}" method="post">   
+    <form action="{% url "apply_for_session" mentor.person.user.username %}" method="post">   
     {% csrf_token %}
     
-    {{ user_form.as_p }}
-    
-    <hr/>
-    
-    {{ mentor_form.as_p }}
+    {{ form.as_p }}
     
     <input type="submit"/>
     </form>
     
     </div>
 </div>
-
 {% endblock %}

@@ -150,6 +150,7 @@ INSTALLED_APPS = (
     'people',
     'mentors',
     'entrepreneurs',
+    'mentoring_sessions',
 
     # For db migrations or changes
     'south',
@@ -185,6 +186,9 @@ LOGGING = {
     }
 }
 
+
+# Our configs
+LOGIN_REDIRECT_URL = "/profile/"
 
 
 # Mentoring Manager Configuration
