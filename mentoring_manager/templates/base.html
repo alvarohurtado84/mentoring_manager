@@ -34,8 +34,8 @@
 
         <div class="wrapper">
 
-            <header class="header-wrapper">
-                <div class="header container">
+            <header class="header-wrapper {% block header_sticky %}sticky{% endblock %}">
+                <div class="header container ">
                     <div class="row">
                         <div class="span12">
                             <div class="logo-top">Mento</div>
@@ -47,28 +47,47 @@
             </header>
 
             {% block menu %}
-                <nav class="menu-wrapper">
+                <nav class="menu-wrapper {% block header_sticky2 %}sticky{% endblock %}">
                     <ul class="menu transitions">
                         <li>
-                            <a href="#home" class="active anchor">Intro</a>
+                            <a href="{% url "home" %}">Intro</a>
+                        </li>
+                        {% if not user.is_authenticated %}
+                            <li>
+                                <a href="/#howto">How to play</a>
+                            </li>
+
+                            <li>
+                                <a href="/#signup">Join a team</a>
+                            </li>
+                        {% endif %}
+                        <li>
+                            <a href="{% url "mentors_list" %}" {% if mentors == 1 %}class="active anchor" {% endif %}>Mentors</a>
                         </li>
                         <li>
-                            <a href="#howto">How to play</a>
+                            <a href="{% url "entrepreneurs_list" %}" {% if mentors == 1 %}class="active anchor" {% endif %}>Startups</a>
                         </li>
-                        <li>
-                            <a href="#signup">Join a team</a>
-                        </li>
-                        <li>
-                            <a href="#mentors">Mentors</a>
-                        </li>
-                        <li>
-                            <a href="#startups">Startups</a>
-                        </li>
-                        <li>
-                            <a href="#contact">Get in touch</a>
-                        </li>
+                        {% if not user.is_authenticated %}
+                            <li>
+                                <a href="#contact">Get in touch</a>
+                            </li>
+                        {% endif %}
+                        {% if  user.is_authenticated %}
+                            <li>
+                                <a href="#">Cuenta</a>
+                                <ul class="sub-menu">
+                                    <li><a href="{% url "person_home" %}">Dashboard</a></li>
+                                    <li><a href="{% url "person_edit" %}">Editar perfil</a></li>
+                                    <li><a href="{% url "person_profile" user.username %}">Perfil público</a></li>
+
+                                    <li><a href="#contact">Cerrar sesión</a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
                     </ul>
                 </nav>
+
+
 
             {% endblock %}            
 

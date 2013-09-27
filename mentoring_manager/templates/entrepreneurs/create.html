@@ -2,20 +2,41 @@
 
 
 {% block content %}
-<div class="page-heading-wrapper">
+
     <div class="container">   
-    
-    {{ msg }}
-    <form action="{% url "entrepreneurs_create" %}" method="post"  enctype='multipart/form-data'>   
-    {% csrf_token %}
-    
-    {{ user_form.as_p }}
-    <hr/>
-    {{ startup_form.as_p}}
-    
-    <input type="submit"/>
-    </form>
-    
+        <div class="row">
+            <div class="span6 centered">
+                <h1>Join as an entrepreneur</h1>
+                <p>
+                    If your startup is already registered do not fill this form, 
+                    in that scenario request to your CEO to add you to the company.
+                </p>
+                <img src="/static/images/icons/rocket-startup.png">
+            </div>
+            <div class="span6">
+                {{ msg }}
+                
+                
+                {% if user.is_authenticated and user.person.is_entrepreneur %}
+                    <h2>You are already an entrepreneur</h2>
+                {% else %}
+                    <h2>Register</h2>
+                    <form class="register" action="{% url "entrepreneurs_create" %}" method="post"  enctype='multipart/form-data'>   
+                        {% csrf_token %}
+                        
+                        {% if not user.is_authenticated %}
+                            {{ user_form.as_p }}
+                        {% else %}
+                            {% if user.is_authenticated and not user.person.is_entrepreneur %}
+                                <h2>Company data</h2>
+                                {{ startup_form.as_p}}
+                            {% endif %}
+                        {% endif %}
+                        <input type="submit"/>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
     </div>
-</div>
+
 {% endblock %}

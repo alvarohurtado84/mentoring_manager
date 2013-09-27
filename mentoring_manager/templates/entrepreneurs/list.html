@@ -2,14 +2,30 @@
 
 
 {% block content %}
-  <h1>Mentor list</h1>
 
-    <ul>
-    {% for entrepreneur in entrepreneurs %}
-        <li>{{ entrepreneur }}</li>
-      {% empty %}
-        <li>There are no mentors yet</li>
-    {% endfor %}
-  </ul>
+  <div class="container">
+    <h1 class="onleft">Startups hosted in Mento
+  </h1>
+  {% if not user.person.is_entrepreneur %}
+    <a href="{% url "entrepreneurs_create" %}" class="btn large shaded onright margin-top">Do you have an startup?</a>
+  {% endif %}
+                            
+                            
 
+    <ul class="inline-list clear">
+      {% for e in entrepreneurs %}
+          <li>
+            <p>
+              <a href="{% url "entrepreneurs_profile" e.person.user.username %}">
+                <img src="{{STATIC_URL}}{{e.person.avatar}}"><br><br>
+                {# Name:{{ e.person.user }}<br> #}
+                Startup: {{ e.startup.name }}
+              </a>
+            </p>
+          </li>
+        {% empty %}
+          <li>There are no mentors yet</li>
+      {% endfor %}
+    </ul>
+</div>
 {% endblock %}

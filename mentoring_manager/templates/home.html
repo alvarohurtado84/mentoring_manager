@@ -2,6 +2,36 @@
 
 {% block body-class %}class="homepage" id="home"{% endblock %}
 
+{% block header_sticky %}{% endblock %}
+{% block header_sticky2 %}{% endblock %}
+
+{% block menu %}
+
+
+    <nav class="menu-wrapper">
+        <ul class="menu transitions">
+            <li>
+                <a href="#home" class="active anchor">Intro</a>
+            </li>
+            <li>
+                <a href="#howto">How to play</a>
+            </li>
+            <li>
+                <a href="#signup">Join a team</a>
+            </li>
+            <li>
+                <a href="#mentors">Mentors</a>
+            </li>
+            <li>
+                <a href="#startups">Startups</a>
+            </li>
+            <li>
+                <a href="#contact">Get in touch</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}            
+
 {% block content %}
 
 <div class="page-heading-wrapper">
@@ -201,7 +231,7 @@
 
 
                 <div class="center clear">
-                    <a href="{% url "mentors_list" %}" class="btn">All Startups</a>
+                    <a href="{% url "entrepreneurs_list" %}" class="btn">All Startups</a>
                 </div>
             </div>
         </div>

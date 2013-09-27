@@ -136,14 +136,15 @@ jQuery.noConflict();
                menuWrapper.removeClass('sticky');
             }
         }
+        if($("body").hasClass("homepage")){
+            $(window).ready(function(){
+                initStikcyHeader();
+            });
 
-        $(window).ready(function(){
-            initStikcyHeader();
-        });
-
-        $(window).scroll(function(){
-            initStikcyHeader();
-        });
+            $(window).scroll(function(){
+                initStikcyHeader();
+            });
+        }
 
         // ---------------------------------------------------------------------------------------------------------------
         //          PATTERNS

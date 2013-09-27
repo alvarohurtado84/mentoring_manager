@@ -1,38 +1,53 @@
 {% extends "base.html" %}
-{% load i18n %}
-
-
-{% block menu %}
-    {% include "menu.html" %}
-{% endblock %}            
+{% load i18n %}     
 
 {% block content %}
 
-<nav class="breadcrumb-wrapper">
-  <ul class="breadcrumb">
-      <li><a href="./index.html">Home</a></li>
-      <li><a href="#">Blog</a></li>
-      <li><span>The european languages are members...</span></li>
-  </ul>
-</nav>
-
 <div class="container">
   <div class="row">
-      <div class="span12">
+      <div class="span6">
+        <h1>Mentor profile</h1>
+      
+        User=={{ mentor.person.user }}<br>
+        Avatar={{ mentor.person.avatar }}<br>
+        Bio={{ mentor.person.description }}<br>
+        Country= {{ mentor.person.country }}<br>
+        City= {{ mentor.person.city }}<br>
+        Twitter= {{ mentor.person.twitter_user }}<br>
+        Linkedin= {{ mentor.person.linkedin_user }}<br>
+        Other social profiles= {{ mentor.person.others_social_profiles }}<br>
 
-        {{ mentor }}
+        What does he/she is looking for= {{ mentor.person.why }}<br>
+        Languages: 
+          {% if mentor.person.english %}english{% endif %} 
+          {% if mentor.person.spanish %}spanish{% endif %}
+          {% if mentor.person.others_languages %}{{others_languages}}{% endif %}
+        
+        <p> Se ofrece para ayudar en: 
+          {% if mentor.business_strategy %}business strategy{% endif %}
+          {% if mentor.design %} design{% endif %}
+          {% if mentor.technology %} technology{% endif %}
+          {% if mentor.marketing_sales %} marketing and sales{% endif %}
+          {% if mentor.legal %} legal{% endif %}
+          {% if mentor.human_resources %} human resources{% endif %}
+          {% if mentor.others_areas %} other areas{% endif %}
+        </p>
+     </div>
+     <div class="span6">
     
+        <p>
+          <h2>Apply for a mentoring session</h2>
+          <p>
+            If you want to have a session with {{ mentor.person.user }} request it and try to schedule an appointment
+          </p>
+          <p>
+            <a href="{% url "apply_for_session" mentor.person.user.username %}" class="btn">{% trans "Request"%}</a>
+          </p>
+        </p>
         
-        <a href="{% url "apply_for_session" mentor.person.user.username %}" >{% trans "Apply for mentoring session."%}</a>
-        
-    </div>
+        <p>entrepreneur={{ entrepreneur }}</p>
+      </div>
   </div>
 </div>
 
-
-entrepreneur={{ entrepreneur }}
-
-
-    </div>
-</div>
 {% endblock %}

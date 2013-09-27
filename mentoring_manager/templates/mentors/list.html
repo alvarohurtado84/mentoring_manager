@@ -4,26 +4,16 @@
 
 {% block body-class %}class="portfolio1"{% endblock %}
 
-{% block menu %}
-    {% include "menu.html" with mentors=1 %}
-{% endblock %}            
-
 {% block content %}
 
-  <div class="page-heading-wrapper">
-      <div class="container">
-          <div class="row">
-              <div class="page-heading span12">
-                  <h1>Our mentors</h1>
-              </div>
-          </div>
-      </div>
-  </div>
-
   <div class="container">
+    <h1 class="onleft">Our mentors</h1>
+    {% if not user.person.is_mentor %}
+      <a href="{% url "mentors_create" %}" class="btn large shaded onright margin-top">Do you want to be a mentor?</a>
+    {% endif %}
     <div class="row">
         <div class="span12">
-          <ul class="center">
+          <ul class="inline-list">
             {% for mentor in mentors %}
               <li>
                 <a href="{% url "mentors_profile" mentor.person.user.username %}">

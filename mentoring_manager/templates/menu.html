@@ -13,7 +13,7 @@
             <a href="{% url "mentors_list" %}" {% if mentors == 1 %}class="active anchor" {% endif %}>Mentors</a>
         </li>
         <li>
-            <a href="#startups">Startups</a>
+            <a href="{% url "entrepreneurs_list" %}" {% if mentors == 1 %}class="active anchor" {% endif %}>Startups</a>
         </li>
         <li>
             <a href="#contact">Get in touch</a>

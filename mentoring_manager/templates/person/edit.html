@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 
 
+{% block body-class %}class="portfolio1"{% endblock %}
+
 {% block content %}
-<div class="page-heading-wrapper">
+
+
     <div class="container">
-    
+    <h1>Editar perfil</h1>
     {% if msg %}{{ msg }}{% endif %}
     {% if form.errors %}
         {{ form.errors }}
@@ -19,5 +22,5 @@
     </form>
     
     </div>
-</div>
+
 {% endblock %}
