@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=245746818788289";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="container">
+  <div class="row">
+    <div class="span6 centered">
+      
+      <iframe id="manifesto" src="https://docs.google.com/presentation/d/1yGgITmk4TbIbyhSrToLdQg7e38zD-S3JWZpRHqW1Q2U/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="389" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+    </div>
+    <div class="span6 centered">
+      <h2 class="light">¿Tú también compartes nuestros valores?</h2>
+      <div class="fb-like-box" data-href="https://www.facebook.com/mento.in" data-width="480" data-height="330" data-show-faces="true" data-header="true" data-stream="false" data-show-border="true"></div>
+    </div>
+    <div class="push"></div>
+
+  </div>
+</div>
+{% endblock %}

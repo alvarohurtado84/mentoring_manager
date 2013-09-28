@@ -7,19 +7,95 @@
 
 
     <div class="container">
-    <h1>Editar perfil</h1>
-    {% if msg %}{{ msg }}{% endif %}
-    {% if form.errors %}
-        {{ form.errors }}
-    {% endif %}
-    
-    <form action="{% url "person_edit" %}" method="post" enctype='multipart/form-data'>   
-    {% csrf_token %}
-    
-    {{ form.as_p }}
-    
-    <input type="submit"/>
-    </form>
+        <h1 class="onleft light">Edit profile</h1>
+        {% if not user.person.is_entrepreneur %}
+            <a href="{% url "entrepreneurs_create" %}" class="btn large shaded onright margin-top">Do you have an startup?</a>
+        {% endif %}
+        {% if not user.person.is_mentor %}
+          <a href="{% url "mentors_create" %}" class="btn large shaded onright margin-top">Do you want to be a mentor?</a>
+        {% endif %}
+
+        <div class="row clear">
+            <div class="span8">
+                {% if msg %}
+                    <p class="error">{{ msg }}</p>
+                {% endif %}
+                
+                <form action="{% url "person_edit" %}" method="post" enctype='multipart/form-data' class="cols2">   
+                    {% csrf_token %}
+                        {% comment %}
+                            <!--<p>
+                                                    {{ form.avatar.label_tag }}
+                                                    {{ form.avatar }}
+                                                </p>
+                                                {% if form.errors %}
+                                            {{ form.errors }}
+                                        {% endif %}
+                                                <hr>-->
+                        {% endcomment %}
+                    
+                        <p>
+                            <label for="id_description">Biography:</label> 
+                            <textarea cols="40" id="id_description" name="description" rows="10" required="required" placeholder="Include some information about your background, etc.">{{form.description.value}}</textarea>
+                            {% include "form_errors.html" with errors=form.description.errors %}
+                        </p>
+                        <p>
+                            <label for="id_why">Which are your motivations:</label> 
+                            <textarea cols="40" id="id_why" name="why" rows="10" required="required">{{form.why.value}}</textarea>
+                            {% include "form_errors.html" with errors=form.why.errors %}
+                        </p>
+                        <p>
+                            <label for="id_country">Country:</label> 
+                            <input id="id_country" maxlength="100" name="country" type="text" value="{{form.country.value}}" required="required"/>
+                            {% include "form_errors.html" with errors=form.country.errors %}
+                        </p>
+                        <p>
+                            <label for="id_city">City:</label> 
+                            <input id="id_city" maxlength="100" name="city" type="text" value="{{form.city.value}}" required="required"/>
+                            {% include "form_errors.html" with errors=form.description.errors %}
+                        </p>
+                        <p>
+                            <label for="id_avatar">Avatar:</label> 
+                            <input id="id_avatar" name="avatar" type="file"/>
+                            {% include "form_errors.html" with errors=form.avatar.errors %}
+                        </p>
+                        <h2 class="clear light">
+                            Social accounts
+                        </h2>
+                        <p>
+                            <label for="id_twitter_user">Twitter user:</label> 
+                            <input id="id_twitter_user" maxlength="50" name="twitter_user" type="text" value="{{form.twitter_user.value}}"/>
+                            {% include "form_errors.html" with errors=form.description.errors %}
+                        </p>
+                        <p>
+                            <label for="id_linkedin_profile">Linkedin profile:</label> 
+                            <input id="id_linkedin_profile" maxlength="200" name="linkedin_profile" type="text" value="{{form.linkedin_profile.value}}"/>
+                            {% include "form_errors.html" with errors=form.description.errors %}
+                        </p>
+                        <p>
+                            <label for="id_others_social_profiles">Others social profiles:</label> 
+                            <textarea cols="40" id="id_others_social_profiles" name="others_social_profiles" rows="10">{{form.others_social_profiles.value}}</textarea>
+                            {% include "form_errors.html" with errors=form.description.errors %}
+                        </p>
+                        <h2 class="clear light">Spoken languages: </h2>
+                        <p>
+                            <label for="id_english">English:</label> <input id="id_english" name="english" type="checkbox" checked="{{form.english.value}}"/>
+                            <label for="id_spanish">Spanish:</label> <input id="id_spanish" name="spanish" type="checkbox" checked="{{form.spanish.value}}"/>
+                        </p>
+                        <p class="clear">
+                            <label for="id_others_languages">Others languages:</label> 
+                            <input id="id_others_languages" maxlength="100" name="others_languages" type="text" value="{{form.others_languages.value}}"/>
+                            {% include "form_errors.html" with errors=form.description.errors %}
+                        </p>
+                        <p class="fill centered">
+                            <input type="submit" value="Submit" class="btn"/>
+                        </p>
+                </form>
+            </div>
+            <div class="span4">
+                <p>El resto de info aquí</p>
+            </div>
+        </div>
     
     </div>
 

@@ -17,7 +17,7 @@
             {% for mentor in mentors %}
               <li>
                 <a href="{% url "mentors_profile" mentor.person.user.username %}">
-                  <img src="{{STATIC_URL}}{{mentor.person.avatar}}"><br>
+                  <img src="{% if e.person.avatar %}{{STATIC_URL}}{{mentor.person.avatar}}{% else %}{{STATIC_URL}}images/icons/guest.png{% endif %}"><br>
                 {{ mentor.person.user.username }}
                 </a>
               </li>

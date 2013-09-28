@@ -14,9 +14,6 @@
                 <a href="#home" class="active anchor">Intro</a>
             </li>
             <li>
-                <a href="#howto">How to play</a>
-            </li>
-            <li>
                 <a href="#signup">Join a team</a>
             </li>
             <li>
@@ -25,9 +22,11 @@
             <li>
                 <a href="#startups">Startups</a>
             </li>
-            <li>
-                <a href="#contact">Get in touch</a>
-            </li>
+            {% if not  user.is_authenticated %}
+                <li>
+                    <a href="{% url "login" %}">Sign in</a>
+                </li>
+            {% endif %}
         </ul>
     </nav>
 {% endblock %}            
@@ -78,7 +77,7 @@
                 </li>
             </ul>
             <div class="center clear">
-                <a href="#" class="btn">Read our Manifesto</a>
+                <a href="{% url "manifesto" %}" class="btn">Read our Manifesto</a>
             </div>
         </div>
     </div>
@@ -98,7 +97,8 @@
                 <li>Complete your profile</li>
                 <li>Request a mentoring session</li>
                 <li>Schedule your meeting</li>
-                <li>Rate the session</li>
+                <li>Have the mentoring session</li>
+                <li>Rate it and give some feedback</li>
             </ol>
         </div>
         <div class="span6">
@@ -106,14 +106,15 @@
             <ol>
                 <li>Signup as Mentor</li>
                 <li>Complete your profile</li>
-                <li>Wait until we send you a request</li>
+                <li>Wait until a startup request you</li>
                 <li>Schedule the mentoring session</li>
-                <li>Rate the session</li>
+                <li>Have the mentoring session</li>
+                <li>Rate it and give some feedback</li>
             </ol>
         </div>
     </div>
     <div class="center clear">
-        <a href="#" class="btn">Game rules</a>
+        <a href="{% url "rules" %}" class="btn">Game rules</a>
     </div>
 </div>
 
@@ -239,6 +240,5 @@
 
     </div>
 </div>
-
 <div class="push"></div>
 {% endblock %}

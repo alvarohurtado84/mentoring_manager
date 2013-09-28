@@ -33,19 +33,19 @@ class Person(models.Model):
     country = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
     
-    twitter_user = models.CharField(max_length=50)
-    linkedin_profile = models.URLField()
+    twitter_user = models.CharField(max_length=50, blank=True)
+    linkedin_profile = models.URLField(blank=True)
     # others social profiles
-    others_social_profiles = models.TextField()
+    others_social_profiles = models.TextField(blank=True)
     
     # why are you here? what are you looking for, interests, who can you help
     # background / aptitudes
     why = models.TextField()
     
     # Languages
-    english = models.BooleanField()
-    spanish = models.BooleanField()
-    others_languages = models.CharField(max_length=100)
+    english = models.BooleanField(blank=True)
+    spanish = models.BooleanField(blank=True)
+    others_languages = models.CharField(max_length=100, blank=True)
     
     def is_mentor(self):
         """Check if this Person is a mentor."""

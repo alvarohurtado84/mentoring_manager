@@ -17,7 +17,7 @@
           <li>
             <p>
               <a href="{% url "entrepreneurs_profile" e.person.user.username %}">
-                <img src="{{STATIC_URL}}{{e.person.avatar}}"><br><br>
+                <img src="{% if e.person.avatar %}{{STATIC_URL}}{{e.person.avatar}}{% else %}{{STATIC_URL}}images/icons/guest_startup.png{% endif %}"><br><br>
                 {# Name:{{ e.person.user }}<br> #}
                 Startup: {{ e.startup.name }}
               </a>

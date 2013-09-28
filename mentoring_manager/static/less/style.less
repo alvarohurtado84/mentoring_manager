@@ -109,3 +109,38 @@ form.register{
 .onleft{float:left;}
 .onright{float:right;}
 .margin-top{margin: 1.25em 0 0;}
+
+form.cols2{
+  
+  p{
+    width:50%;
+    float:left;
+    &.fill{width:100%;}
+  }
+  label{
+    display:block;
+    margin-bottom: .5em;
+    &[for="id_english"],
+    &[for="id_spanish"]{display: inline}
+  }
+  input,textarea{
+    width:80%;
+    &[type="checkbox"]{width:auto;}
+  }
+  textarea{
+    min-height: 0px;
+    height:60px;
+  }
+}
+.wrapper{
+  // margin-bottom: 0;
+}
+
+.error {
+  display: block;
+  margin-top: .5em;
+}
+
+#manifesto{
+  margin-top:1.5em;
+}

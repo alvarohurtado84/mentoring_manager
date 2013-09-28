@@ -4,22 +4,54 @@
 {% block content %}
 
 
-    <div class="container">
-    
-    {{ msg }}
-    <form action="{% url "mentors_create" %}" method="post">   
-    {% csrf_token %}
-    
-    {{ user_form.as_p }}
-    
-    <hr/>
-    
-    {{ mentor_form.as_p }}
-    
-    <input type="submit"/>
-    </form>
-    
+<div class="container">   
+        <div class="row">
+
+            {% if user.is_authenticated and user.person.is_mentor %}
+                
+                <div class="span12 centered">
+                    <h1>Eyyyyy!!!! I have good news!...<br> </h1>
+                
+                    <img src="{{STATIC_URL}}images/icons/master-mentor.png">
+
+                    <h2 class="light">
+                        You are already a mentor! ^_^ 
+                    </h2>
+                
+                    <h3>Now.... where do you want to go?</h3>
+                    <ul>
+                        <li><a href="#" class="btn">To your profile</a></li>
+                    </ul>
+                    <div class="push"></div>
+                </div>
+            {% else %}
+                <div class="span6 centered">
+                    <h1>Become a mentor</h1>
+                    <p>
+                        If you always wanted to help startups this is your time, 
+                        just tell us what you know or in which fields you would like
+                        to help.
+                    </p>
+                    <img src="{{STATIC_URL}}images/icons/master-mentor.png">
+                </div>
+                <div class="span6">
+                    {{ msg }}
+                    <form action="{% url "mentors_create" %}" method="post">   
+                    {% csrf_token %}
+                    
+                    {{ user_form.as_p }}
+                    
+                    <hr/>
+                    
+                    {{ mentor_form.as_p }}
+                    
+                    <input type="submit"/>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
     </div>
+</div>
 
 
 {% endblock %}

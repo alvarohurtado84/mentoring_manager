@@ -12,28 +12,13 @@
         Country=={{ entrepreneur.country }}<br>
         State={{ entrepreneur.state }}<br>
         Name={{ entrepreneur.name }}<br>
+        Choices={{ entrepreneur.choices }}<br>
+        Avatar={{ entrepreneur.avatar }}<br>
+        About_product={{ entrepreneur.about_product }}<br>
+        Webs={{ entrepreneur.webs }}<br>
+        More={{ entrepreneur.more }}<br>
          
-    
-{% comment %}
-          choices=STARTUP_STATE_CHOICES)
-    
-    name = models.CharField(max_length=100)
-    avatar = models.ImageField(upload_to="avatars/startups",
-                               blank=True, null=True)
-
-    # What is the product or service you are building?
-    about_product = models.TextField(blank=True, null=True)
-    # Who is the customer, what problem are you solving?
-    about_customer = models.TextField(blank=True, null=True)
-    # Competitor and why people are going to prefer your product
-    about_competitors = models.TextField(blank=True, null=True)
-    
-    # Website, video, twitter, presentation, anything else
-    webs = models.TextField(blank=True, null=True)
-    
-    # Anything else you want to comment?
-    more = models.TextField(blank=True, null=True)
-{% endcomment %}
+  
         {{ entrepreneur }}
       </div>
   </div>

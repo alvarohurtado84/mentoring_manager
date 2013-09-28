@@ -42,14 +42,21 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     
     # ACCOUNTS
-    url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
-    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout'),
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login', name='login'),
+    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', name='logout'),
     
     # TOS
     url(
-        r'^tos/$',
-        TemplateView.as_view(template_name='tos.html'),
-        name = 'tos',
+        r'^rules/$',
+        TemplateView.as_view(template_name='rules.html'),
+        name = 'rules',
+        ),
+
+    # MANIFESTO
+    url(
+        r'^manifesto/$',
+        TemplateView.as_view(template_name='manifesto.html'),
+        name = 'manifesto',
         ),
 )
 
