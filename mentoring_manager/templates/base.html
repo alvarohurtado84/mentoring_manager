@@ -38,8 +38,8 @@
                 <div class="header container ">
                     <div class="row">
                         <div class="span12">
-                            <div class="logo-top"><a href="/">Mento</a></div>
-                            <!--<a href="./index.html" class="logo-top"><img src="{{STATIC_URL}}images/logo.png" alt="bulb, creative agency" /></a>-->
+                            
+                            <a href="/" class="logo-top"><img src="{{STATIC_URL}}images/logo/tmp_logo.png" alt="bulb, creative agency" /></a>
                             <a href="#" class="toggle-mobilenav" id="toggleMobilenav"><i class="easycons-mobile-nav"></i></a>
                         </div>
                     </div>
@@ -61,11 +61,14 @@
                             <a href="{% url "mentors_list" %}" {% if mentors == 1 %}class="active anchor" {% endif %}>Mentors</a>
                         </li>
                         <li>
-                            <a href="{% url "entrepreneurs_list" %}" {% if mentors == 1 %}class="active anchor" {% endif %}>Startups</a>
+                            <a href="{% url "entrepreneurs_list" %}" {% if entrepreneurs == 1 %}class="active anchor" {% endif %}>Startups</a>
                         </li>
                         {% if user.is_authenticated %}
                             <li>
-                                <a href="#">Cuenta</a>
+                                <a href="#">
+                                    <i class="easycons-arrow-down white small "></i>
+                                    {{user}}
+                                </a>
                                 <ul class="sub-menu">
                                     <li><a href="{% url "person_home" %}">Dashboard</a></li>
                                     <li><a href="{% url "person_edit" %}">Editar perfil</a></li>

@@ -5,38 +5,162 @@
 
     <div class="container">   
         <div class="row">
-            <div class="span6 centered">
-                <h1>Join as an entrepreneur</h1>
-                <p>
-                    If your startup is already registered do not fill this form, 
-                    in that scenario request to your CEO to add you to the company.
-                </p>
-                <img src="/static/images/icons/rocket-startup.png">
-            </div>
-            <div class="span6">
-                {{ msg }}
+            
+            {% if user.is_authenticated and user.person.is_entrepreneur %}
                 
+                <div class="span12 centered">
+                    <h1>Eyyyyy!!!! I have good news!...<br> </h1>
                 
-                {% if user.is_authenticated and user.person.is_entrepreneur %}
-                    <h2>You are already an entrepreneur</h2>
-                {% else %}
-                    <h2>Register</h2>
-                    <form class="register" action="{% url "entrepreneurs_create" %}" method="post"  enctype='multipart/form-data'>   
-                        {% csrf_token %}
-                        
-                        {% if not user.is_authenticated %}
+                    <img src="{{STATIC_URL}}images/icons/rocket-startup.png">
+
+                    <h2 class="light">
+                        You are already have your startup registered! ^_^ 
+                    </h2>
+                
+                    <h3>Now.... where do you want to go?</h3>
+                    <ul>
+                        <li><a href="#" class="btn">To your profile</a></li>
+                    </ul>
+                    <div class="push"></div>
+                </div>
+            {% else %}
+                {% if not user.is_authenticated %}
+                    
+                    <div class="span6 centered">
+                        <h1>Join as an entrepreneur</h1>
+                        <p>
+                            
+                        </p>
+                        <img src="/static/images/icons/rocket-startup.png">
+                    </div>
+                    <div class="span6">
+                        {{ msg }}
+                        <h2>Register</h2>
+                        <form class="register" action="{% url "entrepreneurs_create" %}" method="post"  enctype='multipart/form-data'>   
+                            {% csrf_token %}
                             {{ user_form.as_p }}
-                        {% else %}
-                            {% if user.is_authenticated and not user.person.is_entrepreneur %}
-                                <h2>Company data</h2>
-                                {{ startup_form.as_p}}
-                            {% endif %}
-                        {% endif %}
-                        <input type="submit"/>
-                    </form>
+                            <small class="login"><a href="{% url "login" %}">Do you already have an account? Sign in</a></small>
+                            <input type="submit"/>
+                        </form>
+                    </div>
+                    
+                {% else %}
+                    <div class="span12">
+                        <h1 class="light">Register your Startup</h2>
+                        <p>Lee las <a href="{% url "rules" %}">reglas de juego</a>, si estás conforme por favor rellena el siguiente formulario para poder empezar a solicitar sesiones.</p>
+                    
+                        <img src="{{STATIC_URL}}images/icons/rocket-startup.png" class="onright bg">
+                    </div>
+
+                    <div class="span12">
+                        {{ msg }}
+                        {{form.errors}}
+                        {{ form.non_field_errors }}
+
+                        <form class="register cols2" action="{% url "entrepreneurs_create" %}" method="post"  enctype='multipart/form-data'>   
+                            {% csrf_token %}
+                            <h2 class="light">Public data</h2>
+                            <p>
+                                <label for="id_name" class="fill">Name:(*)</label> 
+                                <input id="id_name" maxlength="100" name="name" type="text" value="{{form.name.value}}"/>
+                                {% include "form_errors.html" with errors=form.name.errors %}
+                            </p>
+                            <p>
+                                <label for="id_city" class="fill">City:(*)</label> 
+                                <input id="id_city" maxlength="100" name="city" type="text" value="{{form.city.value}}"/>
+                                {% include "form_errors.html" with errors=form.city.errors %}
+                            </p>
+                            <p>
+                                <label for="id_country" class="fill">Country:(*)</label> 
+                                <input id="id_country" maxlength="100" name="country" type="text" value="{{form.country.value}}"/>
+                                {% include "form_errors.html" with errors=form.country.errors %}
+                            </p>
+                            <p>
+                                <label for="id_about_product">What is the product or service you are building?:</label> 
+                                <textarea cols="40" id="id_about_product" name="about_product" rows="10">{{form.about_product.value}}</textarea>
+                                {% include "form_errors.html" with errors=form.about_product.errors %}
+                            </p>
+                            <p>
+                                <label for="id_webs">Website, video, twitter, presentation, anything else:</label> 
+                                <textarea cols="40" id="id_webs" name="webs" rows="10">{{form.webs.value}}</textarea>
+                                {% include "form_errors.html" with errors=form.webs.errors %}
+                            </p>
+                            <p>
+                                <label for="id_more">Anything else you want to comment?:</label> 
+                                <textarea cols="40" id="id_more" name="more" rows="10">{{form.more.value}}</textarea>
+                                {% include "form_errors.html" with errors=form.more.errors %}
+                            </p>
+                            <p>
+                                <label for="id_avatar">Logo:</label> 
+                                <input id="id_avatar" name="avatar" type="file" />
+                            </p>
+                            
+                            <hr>
+                            <h2 class="clear light">Private data (for mentors)</h2>
+                            <p>
+                                <label for="id_state">Where are you? (state):(*)</label> 
+                                <select id="id_state" name="state">
+                                    <option value="" selected="selected">---------</option>
+                                    <option value="i">Idea</option>
+                                    <option value="bmd">Business model development</option>
+                                    <option value="mvpd">MVP Development</option>
+                                    <option value="bmv">Business model validation</option>
+                                    <option value="g">Growth</option>
+                                </select>
+                                {% include "form_errors.html" with errors=form.id_state.errors %}
+                            </p>
+                            <p>
+                                <label for="id_when_start">When did you start working on it?:</label> 
+                                <input id="id_when_start" maxlength="100" name="when_start" type="text" value="{{form.when_start.value}}"/>
+                                {% include "form_errors.html" with errors=form.when_start.errors %}
+                            </p>
+                            <p>
+                                <label for="id_about_customer">Who is the customer, what problem are you solving?:</label> 
+                                <textarea cols="40" id="id_about_customer" name="about_customer" rows="10">{{form.about_customer.value}}</textarea>
+                                {% include "form_errors.html" with errors=form.about_customer.errors %}
+                            </p>
+                            <p>
+                                <label for="id_about_competitors">Competitor and why people are going to prefer your product:</label> 
+                                <textarea cols="40" id="id_about_competitors" name="about_competitors" rows="10">{{form.about_competitors.value}}</textarea>
+                                {% include "form_errors.html" with errors=form.about_competitors.errors %}
+                            </p>
+                            <p>
+                                <label for="id_business_model">How will you make money? (Business model):</label> 
+                                <textarea cols="40" id="id_business_model" name="business_model" rows="10">{{form.business_model.value}}</textarea>
+                                {% include "form_errors.html" with errors=form.business_model.errors %}
+                            </p>
+                            <p>
+                                <label for="id_commitment">Which is your commitment with the project?:</label> 
+                                <textarea cols="40" id="id_commitment" name="commitment" rows="10">{{form.commitment.value}}</textarea>
+                                {% include "form_errors.html" with errors=form.commitment.errors %}
+                            </p>
+                            <p>
+                                <label for="id_resources">Resource (how many people in team, funds, already spent...):</label>
+                                <textarea cols="40" id="id_resources" name="resources" rows="10">{{form.resources.value}}</textarea>
+                                {% include "form_errors.html" with errors=form.resources.errors %}
+                            </p>
+                            <p>
+                                <label for="id_goals">Short, mid and long-term goals:</label> 
+                                <textarea cols="40" id="id_goals" name="goals" rows="10">{{form.goals.value}}</textarea>
+                                {% include "form_errors.html" with errors=form.goals.errors %}
+                            </p>
+                            <p>
+                                <label for="id_legally_constituted">Are you legally constituted?:</label> 
+                                <input id="id_legally_constituted" name="legally_constituted" type="checkbox" value="{{form.legally_constituted.value}}"/>
+                                {% include "form_errors.html" with errors=form.legally_constituted.errors %}
+                            </p>
+                            <p>
+                                <input id="game_rules" name="game_rules" type="checkbox" checked="{{form.game_rules.value}}" required="required"/> <label for="rules">I have read the <a href="{% url "rules" %}">Game Rules</a></label>
+                            </p>
+                            <input type="submit" class="clear"/>
+                        </form>
+                    </div>
+                            
+                    
                 {% endif %}
-            </div>
+            {% endif %}
         </div>
     </div>
+    <div class="push"></div>
 
 {% endblock %}

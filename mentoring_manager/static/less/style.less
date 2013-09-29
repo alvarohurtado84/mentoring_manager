@@ -81,6 +81,18 @@ form.register{
     background-color: #0096DD;
     color: #FFF
   }
+  .login{
+    width: 150px;
+    display: inline-block;
+    line-height: 1.5em;
+    text-align: center;
+  }
+}
+img.bg{
+  position: absolute;
+  z-index: -1;
+  right: 30px;
+  top: 30px;
 }
 .helptext{
   display:block;
@@ -111,14 +123,14 @@ form.register{
 .margin-top{margin: 1.25em 0 0;}
 
 form.cols2{
-  
+  .fill{width:100%;}
   p{
     width:50%;
     float:left;
-    &.fill{width:100%;}
   }
   label{
-    display:block;
+    display:inline-block;
+    width:auto;
     margin-bottom: .5em;
     &[for="id_english"],
     &[for="id_spanish"]{display: inline}
@@ -126,6 +138,10 @@ form.cols2{
   input,textarea{
     width:80%;
     &[type="checkbox"]{width:auto;}
+  }
+  select{
+    height: 36px;
+    display: block;
   }
   textarea{
     min-height: 0px;
